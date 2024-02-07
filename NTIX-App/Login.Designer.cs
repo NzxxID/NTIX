@@ -72,7 +72,7 @@
             this.Lbl_Motivasi.Name = "Lbl_Motivasi";
             this.Lbl_Motivasi.Size = new System.Drawing.Size(356, 16);
             this.Lbl_Motivasi.TabIndex = 1;
-            this.Lbl_Motivasi.Text = "Masuk Untuk Mendapat Pengalaman Yang Lenih Baik";
+            this.Lbl_Motivasi.Text = "Masuk Untuk Mendapat Pengalaman Yang Lebih Baik";
             // 
             // Lbl_SelamatDatang
             // 

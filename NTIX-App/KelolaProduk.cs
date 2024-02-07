@@ -167,5 +167,10 @@ namespace NTIX_App
                 f.showData(query, Dgv_KelolaProduk);
             }
         }
+
+        private void Btn_Reset_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
     }
 }

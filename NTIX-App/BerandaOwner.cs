@@ -211,6 +211,9 @@ namespace NTIX_App
                 // Membuka dokumen
                 doc.Open();
 
+                //Menampilkan Tanggal Cetak Pdf
+                doc.Add(currentDate);
+
                 // Membuat table dengan jumlah kolom sesuai dengan jumlah kolom di dalam DataGridView
                 PdfPTable table = new PdfPTable(Dgv_DataKegiatan.Columns.Count);
 

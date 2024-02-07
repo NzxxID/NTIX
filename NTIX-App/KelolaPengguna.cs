@@ -149,5 +149,10 @@ namespace NTIX_App
                 f.showData(query, Dgv_KelolaPengguna);
             }
         }
+
+        private void Btn_Reset_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
     }
 }

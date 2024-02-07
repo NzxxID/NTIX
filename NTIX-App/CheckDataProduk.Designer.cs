@@ -250,6 +250,7 @@
             this.Controls.Add(this.txt_SearchDataProduk);
             this.Controls.Add(this.Lbl_DataProduk);
             this.Controls.Add(this.Pnl_BerandaOwner);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CheckDataProduk";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckDataProduk";

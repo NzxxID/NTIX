@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Laporan));
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport11 = new NTIX_App.CrystalReport1();
             this.CrystalReport12 = new NTIX_App.CrystalReport1();
+            this.CrystalReport11 = new NTIX_App.CrystalReport1();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -51,6 +52,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 451);
             this.Controls.Add(this.crystalReportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Laporan";
             this.Text = "Laporan";
             this.ResumeLayout(false);

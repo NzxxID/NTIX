@@ -370,6 +370,8 @@ namespace NTIX_App
             UangBayar.Text = txt_UangBayar.Text;
             TextObject UangKembali = (TextObject)cr1.ReportDefinition.Sections["Section4"].ReportObjects["UangKembali"];
             UangKembali.Text = txt_UangKembali.Text;
+            TextObject tgl = (TextObject)cr1.ReportDefinition.Sections["Section2"].ReportObjects["Tanggal"];
+            tgl.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
 
             frm.crystalReportViewer1.ReportSource = cr1;

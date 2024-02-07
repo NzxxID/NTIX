@@ -56,6 +56,8 @@
             this.Pb_SearchPengguna = new System.Windows.Forms.PictureBox();
             this.Dgv_KelolaPengguna = new System.Windows.Forms.DataGridView();
             this.Pb_Kembali = new System.Windows.Forms.PictureBox();
+            this.Btn_Reset = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_IlustrasiAdmin)).BeginInit();
             this.Pnl_KelolaPengguna.SuspendLayout();
             this.Tlp_NamaPengguna.SuspendLayout();
@@ -68,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_SearchPengguna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_KelolaPengguna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Kembali)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pb_IlustrasiAdmin
@@ -329,7 +332,7 @@
             this.Tlp_Hapus.ColumnCount = 1;
             this.Tlp_Hapus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Tlp_Hapus.Controls.Add(this.Btn_Hapus, 0, 0);
-            this.Tlp_Hapus.Location = new System.Drawing.Point(366, 145);
+            this.Tlp_Hapus.Location = new System.Drawing.Point(481, 145);
             this.Tlp_Hapus.Name = "Tlp_Hapus";
             this.Tlp_Hapus.RowCount = 1;
             this.Tlp_Hapus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -380,11 +383,38 @@
             this.Pb_Kembali.TabStop = false;
             this.Pb_Kembali.Click += new System.EventHandler(this.Pb_Kembali_Click);
             // 
+            // Btn_Reset
+            // 
+            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Reset.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Reset.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Reset.Location = new System.Drawing.Point(3, 3);
+            this.Btn_Reset.Name = "Btn_Reset";
+            this.Btn_Reset.Size = new System.Drawing.Size(103, 21);
+            this.Btn_Reset.TabIndex = 17;
+            this.Btn_Reset.Text = "Reset";
+            this.Btn_Reset.UseVisualStyleBackColor = true;
+            this.Btn_Reset.Click += new System.EventHandler(this.Btn_Reset_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.Btn_Reset, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(366, 145);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(109, 27);
+            this.tableLayoutPanel1.TabIndex = 26;
+            // 
             // KelolaPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 451);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Pb_Kembali);
             this.Controls.Add(this.Dgv_KelolaPengguna);
             this.Controls.Add(this.Pb_SearchPengguna);
@@ -424,6 +454,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_SearchPengguna)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_KelolaPengguna)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Kembali)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,5 +489,7 @@
         private System.Windows.Forms.PictureBox Pb_SearchPengguna;
         private System.Windows.Forms.DataGridView Dgv_KelolaPengguna;
         private System.Windows.Forms.PictureBox Pb_Kembali;
+        private System.Windows.Forms.Button Btn_Reset;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

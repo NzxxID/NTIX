@@ -62,6 +62,8 @@
             this.Pb_SearchPengguna = new System.Windows.Forms.PictureBox();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Btn_Reset = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_IlustrasiAdmin)).BeginInit();
             this.Pnl_KelolaProduk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Kembali)).BeginInit();
@@ -76,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_KelolaProduk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_SearchPengguna)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_Keluar
@@ -336,7 +339,7 @@
             this.Tlp_Hapus.ColumnCount = 1;
             this.Tlp_Hapus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Tlp_Hapus.Controls.Add(this.Btn_Hapus, 0, 0);
-            this.Tlp_Hapus.Location = new System.Drawing.Point(366, 145);
+            this.Tlp_Hapus.Location = new System.Drawing.Point(481, 145);
             this.Tlp_Hapus.Name = "Tlp_Hapus";
             this.Tlp_Hapus.RowCount = 1;
             this.Tlp_Hapus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -454,11 +457,38 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 27);
             this.tableLayoutPanel1.TabIndex = 47;
             // 
+            // Btn_Reset
+            // 
+            this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Reset.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Reset.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Reset.Location = new System.Drawing.Point(3, 3);
+            this.Btn_Reset.Name = "Btn_Reset";
+            this.Btn_Reset.Size = new System.Drawing.Size(103, 21);
+            this.Btn_Reset.TabIndex = 17;
+            this.Btn_Reset.Text = "Reset";
+            this.Btn_Reset.UseVisualStyleBackColor = true;
+            this.Btn_Reset.Click += new System.EventHandler(this.Btn_Reset_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.Btn_Reset, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(366, 145);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(109, 27);
+            this.tableLayoutPanel2.TabIndex = 48;
+            // 
             // KelolaProduk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 451);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Pb_SearchPengguna);
             this.Controls.Add(this.txt_Search);
@@ -506,6 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_SearchPengguna)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,5 +577,7 @@
         private System.Windows.Forms.PictureBox Pb_SearchPengguna;
         private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button Btn_Reset;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

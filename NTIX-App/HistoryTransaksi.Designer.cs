@@ -250,6 +250,7 @@
             this.Controls.Add(this.txt_SearchDataTransaksi);
             this.Controls.Add(this.Lbl_DataTransaksi);
             this.Controls.Add(this.Pnl_BerandaOwner);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HistoryTransaksi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HistoryTransaksi";
