@@ -85,9 +85,9 @@ namespace NTIX_App
                         // Tambahkan kondisi tanggal jika dipilih
                         if (Dtp_DataTransaksi1.Value != DateTime.Now || Dtp_DataTransaksi2.Value != DateTime.Now)
                         {
-                            whereCondition += " l.created_at BETWEEN @fromdate AND @todate";
-                            parameters.Add(new MySqlParameter("@fromdate", Dtp_DataTransaksi1.Value));
-                            parameters.Add(new MySqlParameter("@todate", Dtp_DataTransaksi2.Value.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                            whereCondition += " DATE (l.created_at) BETWEEN @fromdate AND @todate";
+                            parameters.Add(new MySqlParameter("@fromdate", Dtp_DataTransaksi1.Value.Date));
+                            parameters.Add(new MySqlParameter("@todate", Dtp_DataTransaksi2.Value.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
                         }
 
                         // Gabungkan semua kondisi menjadi satu query

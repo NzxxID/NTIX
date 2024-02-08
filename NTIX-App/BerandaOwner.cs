@@ -143,9 +143,9 @@ namespace NTIX_App
                 {
                     if (!string.IsNullOrEmpty(whereCondition))
                     whereCondition += " AND";
-                    whereCondition += " l.created_at BETWEEN @fromdate AND @todate";
-                    parameters.Add(new MySqlParameter("@fromdate", fromDate));
-                    parameters.Add(new MySqlParameter("@todate", toDate.AddDays(1))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                    whereCondition += " DATE(l.created_at) BETWEEN @fromdate AND @todate";
+                    parameters.Add(new MySqlParameter("@fromdate", fromDate.Date));
+                    parameters.Add(new MySqlParameter("@todate", toDate.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
                 }
 
                 // Gabungkan semua kondisi menjadi satu query

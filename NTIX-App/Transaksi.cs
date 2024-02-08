@@ -51,7 +51,16 @@ namespace NTIX_App
             string query = "SELECT l.id, u.nama_produk, u.harga_produk, l.qty,l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " +"FROM transaksi l " +"JOIN produk u ON l.id_produk = u.id";
 
             f.showData(query, Dgv_Transaksi);
-        } 
+        }
+        private void RefreshDataGridView()
+        {
+            string query = "SELECT l.id, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " +
+                           "FROM transaksi l " +
+                           "JOIN produk u ON l.id_produk = u.id " +
+                           "ORDER BY l.id DESC";
+
+            f.showData(query, Dgv_Transaksi);
+        }
         private void ProcessTransaction()
         {
             // Mendapatkan nilai dari kontrol input
@@ -113,7 +122,7 @@ namespace NTIX_App
                 clear(); // Clear the form after successful transaction
 
                 // Memanggil kembali metode Transaksi_Load untuk merefresh form
-                Transaksi_Load(null, EventArgs.Empty);
+                RefreshDataGridView();
             }
         }
         private int GetProductId(string productName)
@@ -298,13 +307,13 @@ namespace NTIX_App
 
             DataGridViewRow dr = this.Dgv_Transaksi.Rows[e.RowIndex];
             Cb_NamaKonser.Text = dr.Cells[1].Value.ToString();
-            txt_Harga.Text = decimal.Parse(dr.Cells[2].Value.ToString()).ToString("C");
+            txt_Harga.Text = decimal.Parse(dr.Cells[2].Value.ToString()).ToString("N2");
             txt_Kuantitas.Text = dr.Cells[3].Value.ToString();
             txt_NamaPemesan.Text = dr.Cells[4].Value.ToString();
             txt_NoHp.Text = dr.Cells[5].Value.ToString();
-            txt_TotalPembayaran.Text = decimal.Parse(dr.Cells[6].Value.ToString()).ToString("C");
-            txt_UangBayar.Text = decimal.Parse(dr.Cells[7]. Value.ToString()).ToString("C");
-            txt_UangKembali.Text = decimal.Parse(dr.Cells[8].Value.ToString()).ToString("C");
+            txt_TotalPembayaran.Text = decimal.Parse(dr.Cells[6].Value.ToString()).ToString("N2");
+            txt_UangBayar.Text = decimal.Parse(dr.Cells[7]. Value.ToString()).ToString("N2");
+            txt_UangKembali.Text = decimal.Parse(dr.Cells[8].Value.ToString()).ToString("N2");
             id = dr.Cells[0].Value.ToString();
         }
 
