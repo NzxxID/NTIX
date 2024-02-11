@@ -66,11 +66,19 @@ namespace NTIX_App
             }
             else
             {
-                MessageBox.Show("Sukses Menambahkan Pengguna", "Menambahkan Pengguna Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Menambahkan Pengguna', NOW())");
-                string query = "INSERT INTO users ( username, password, nama, role, created_at) VALUES ( '" + txt_NamaPengguna.Text + "', '" + txt_KataSandi.Text + "', '" + txt_Nama.Text + "', '" + Cb_Role.Text + "', NOW())";
-                f.command(query);
-                clear();
+                DialogResult result = MessageBox.Show("Apakah Anda Yakin Akan Menyimpan Pengguna?", "Hapus?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Menambahkan Pengguna', NOW())");
+                    string query = "INSERT INTO users ( username, password, nama, role, created_at) VALUES ( '" + txt_NamaPengguna.Text + "', '" + txt_KataSandi.Text + "', '" + txt_Nama.Text + "', '" + Cb_Role.Text + "', NOW())";
+                    f.command(query);
+                    clear();
+                }
+                else if (result == DialogResult.No)
+                {
+
+                }
+                
             }
         }
 
@@ -85,10 +93,18 @@ namespace NTIX_App
             }
             else
             {
-                MessageBox.Show("Sukses Mengedit Pengguna", "Mengedit Pengguna Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Mengedit Pengguna', NOW())");
-                f.command("update users set username = '" + txt_NamaPengguna.Text + "', password = '" + txt_KataSandi.Text + "', nama = '" + txt_Nama.Text + "', role = '" + Cb_Role.Text + "', updated_at = NOW() where id = '" + id + "' ");
-                clear();
+                DialogResult result = MessageBox.Show("Apakah Anda Yakin Akan Mengedit Pengguna?", "Hapus?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Mengedit Pengguna', NOW())");
+                    f.command("update users set username = '" + txt_NamaPengguna.Text + "', password = '" + txt_KataSandi.Text + "', nama = '" + txt_Nama.Text + "', role = '" + Cb_Role.Text + "', updated_at = NOW() where id = '" + id + "' ");
+                    clear();
+                }
+                else if (result == DialogResult.No)
+                {
+
+                }
+                
             }
         }
 

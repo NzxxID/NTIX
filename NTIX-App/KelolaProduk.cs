@@ -67,11 +67,19 @@ namespace NTIX_App
             }
             else
             {
-                MessageBox.Show("Sukses Menambahkan Produk", "Menambahkan Produk Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Menambahkan Produk', NOW())");
-                string query = "INSERT INTO produk ( nama_produk, jenis_musik, harga_produk, harga_produkVIP, stok, lokasi, tanggal_event, created_at) VALUES ( '" + txt_NamaKonser.Text + "', '" + txt_JenisMusik.Text + "', '" + txt_Harga.Text + "', '" + txt_HargaVIP.Text + "', '" + txt_Stok.Text + "','" + txt_Lokasi.Text + "', '" + tgls + "', NOW())";
-                f.command(query);
-                clear();
+                DialogResult result = MessageBox.Show("Apakah Anda Yakin Akan Menyimpan Produk?", "Hapus?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Menambahkan Produk', NOW())");
+                    string query = "INSERT INTO produk ( nama_produk, jenis_musik, harga_produk, harga_produkVIP, stok, lokasi, tanggal_event, created_at) VALUES ( '" + txt_NamaKonser.Text + "', '" + txt_JenisMusik.Text + "', '" + txt_Harga.Text + "', '" + txt_HargaVIP.Text + "', '" + txt_Stok.Text + "','" + txt_Lokasi.Text + "', '" + tgls + "', NOW())";
+                    f.command(query);
+                    clear();
+                }
+                else if (result == DialogResult.No)
+                {
+
+                }
+               
             }
         }
 
@@ -86,10 +94,18 @@ namespace NTIX_App
             }
             else
             {
-                MessageBox.Show("Sukses Mengedit Pengguna", "Mengedit Produk Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Mengedit Produk', NOW())");
-                f.command("update produk set nama_produk = '" + txt_NamaKonser.Text + "', jenis_musik = '" + txt_JenisMusik.Text + "', harga_produk = '" + txt_Harga.Text + "', stok = '" + txt_Stok.Text + "', lokasi = '" + txt_Lokasi.Text + "', updated_at = NOW() where id = '" + id + "' ");
-                clear();
+                DialogResult result = MessageBox.Show("Apakah Anda Yakin Akan Mengedit Produk?", "Hapus?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Mengedit Produk', NOW())");
+                    f.command("update produk set nama_produk = '" + txt_NamaKonser.Text + "', jenis_musik = '" + txt_JenisMusik.Text + "', harga_produkVIP = '" + txt_HargaVIP.Text + "', harga_produk = '" + txt_Harga.Text + "', stok = '" + txt_Stok.Text + "', lokasi = '" + txt_Lokasi.Text + "', updated_at = NOW() where id = '" + id + "' ");
+                    clear();
+                }
+                else if (result == DialogResult.No)
+                {
+
+                }
+               
             }
         }
 
@@ -127,8 +143,9 @@ namespace NTIX_App
             txt_NamaKonser.Text = dr.Cells[1].Value.ToString();
             txt_JenisMusik.Text = dr.Cells[2].Value.ToString();
             txt_Harga.Text = dr.Cells[3].Value.ToString();
-            txt_Stok.Text = dr.Cells[4].Value.ToString();
-            txt_Lokasi.Text = dr.Cells[5].Value.ToString();
+            txt_HargaVIP.Text = dr.Cells[4].Value.ToString();
+            txt_Stok.Text = dr.Cells[5].Value.ToString();
+            txt_Lokasi.Text = dr.Cells[6].Value.ToString();
             id = dr.Cells[0].Value.ToString();
         }
 

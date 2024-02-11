@@ -397,12 +397,16 @@ namespace NTIX_App
         {
             Laporan frm = new Laporan();
             CrystalReport1 cr1 = new CrystalReport1();
+            TextObject NomorUnik = (TextObject)cr1.ReportDefinition.Sections["Section2"].ReportObjects["NoUnik"];
+            NomorUnik.Text = txt_NoUnik.Text;
             TextObject NamaPemesan = (TextObject)cr1.ReportDefinition.Sections["Section2"].ReportObjects["NamaPelanggan"];
             NamaPemesan.Text = txt_NamaPemesan.Text;
             TextObject NoHandphone = (TextObject)cr1.ReportDefinition.Sections["Section2"].ReportObjects["NoHandphone"];
             NoHandphone.Text = txt_NoHp.Text;
             TextObject NamaProduk = (TextObject)cr1.ReportDefinition.Sections["Section3"].ReportObjects["NamaProduk"];
             NamaProduk.Text = Cb_NamaKonser.Text;
+            TextObject Kategori = (TextObject)cr1.ReportDefinition.Sections["Section3"].ReportObjects["Kategori"];
+            Kategori.Text = Cb_Kategori.Text;
             TextObject HargaProduk = (TextObject)cr1.ReportDefinition.Sections["Section3"].ReportObjects["Harga"];
             HargaProduk.Text = txt_Harga.Text;
             TextObject Kuantitas = (TextObject)cr1.ReportDefinition.Sections["Section3"].ReportObjects["Kuantitas"];
