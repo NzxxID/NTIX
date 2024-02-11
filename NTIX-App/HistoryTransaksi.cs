@@ -29,7 +29,7 @@ namespace NTIX_App
         }
         private void LoadData()
         {
-            string query = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty,l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " + "JOIN produk u ON l.id_produk = u.id";
+            string query = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty,l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " + "JOIN produk u ON l.id_produk = u.id";
             f.showData(query, Dgv_DataTransaksi);
         }
 
@@ -76,7 +76,7 @@ namespace NTIX_App
                     using (DataTable dt = new DataTable("log"))
                     {
                         // Query dasar
-                        string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " + "JOIN produk u ON l.id_produk = u.id";
+                        string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " + "JOIN produk u ON l.id_produk = u.id";
 
                         // Persiapkan parameter dan kondisi WHERE
                         List<MySqlParameter> parameters = new List<MySqlParameter>();
@@ -137,7 +137,7 @@ namespace NTIX_App
                     using (DataTable dt = new DataTable("log"))
                     {
                         // Query dasar
-                        string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " +"JOIN produk u ON l.id_produk = u.id";
+                        string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " +"JOIN produk u ON l.id_produk = u.id";
 
                         // Persiapkan parameter dan kondisi WHERE
                         List<MySqlParameter> parameters = new List<MySqlParameter>();

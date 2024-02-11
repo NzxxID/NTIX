@@ -25,6 +25,7 @@ namespace NTIX_App
             txt_NamaKonser.Text = string.Empty;
             txt_JenisMusik.Text = string.Empty;
             txt_Harga.Text = string.Empty;
+            txt_HargaVIP.Text = string.Empty;
             txt_Stok.Text = string.Empty;
             txt_Lokasi.Text = string.Empty;
             Dtp_TanggalKonser.Text = string.Empty;
@@ -60,7 +61,7 @@ namespace NTIX_App
 
         private void Btn_Simpan_Click(object sender, EventArgs e)
         {
-            if (txt_NamaKonser.Text == string.Empty || txt_JenisMusik.Text == string.Empty || txt_Harga.Text == string.Empty || txt_Stok.Text == string.Empty || txt_Lokasi.Text == string.Empty)
+            if (txt_NamaKonser.Text == string.Empty || txt_JenisMusik.Text == string.Empty || txt_Harga.Text == string.Empty || txt_HargaVIP.Text == string.Empty || txt_Stok.Text == string.Empty || txt_Lokasi.Text == string.Empty)
             {
                 MessageBox.Show("Semua kolom harus diisi!");
             }
@@ -68,7 +69,7 @@ namespace NTIX_App
             {
                 MessageBox.Show("Sukses Menambahkan Produk", "Menambahkan Produk Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 f.command("insert into log (id_user, activity, created_at) VALUES ('" + FunctionClass.id_user + "', 'Admin Menambahkan Produk', NOW())");
-                string query = "INSERT INTO produk ( nama_produk, jenis_musik, harga_produk, stok, lokasi, tanggal_event, created_at) VALUES ( '" + txt_NamaKonser.Text + "', '" + txt_JenisMusik.Text + "', '" + txt_Harga.Text + "', '" + txt_Stok.Text + "','" + txt_Lokasi.Text + "', '" + tgls + "', NOW())";
+                string query = "INSERT INTO produk ( nama_produk, jenis_musik, harga_produk, harga_produkVIP, stok, lokasi, tanggal_event, created_at) VALUES ( '" + txt_NamaKonser.Text + "', '" + txt_JenisMusik.Text + "', '" + txt_Harga.Text + "', '" + txt_HargaVIP.Text + "', '" + txt_Stok.Text + "','" + txt_Lokasi.Text + "', '" + tgls + "', NOW())";
                 f.command(query);
                 clear();
             }

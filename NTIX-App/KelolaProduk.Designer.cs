@@ -64,6 +64,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Btn_Reset = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.txt_HargaVIP = new System.Windows.Forms.TextBox();
+            this.Lbl_HargaVIP = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_IlustrasiAdmin)).BeginInit();
             this.Pnl_KelolaProduk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Kembali)).BeginInit();
@@ -79,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_SearchPengguna)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_Keluar
@@ -156,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_NamaKonser.Location = new System.Drawing.Point(3, 3);
             this.txt_NamaKonser.Name = "txt_NamaKonser";
-            this.txt_NamaKonser.Size = new System.Drawing.Size(645, 20);
+            this.txt_NamaKonser.Size = new System.Drawing.Size(351, 20);
             this.txt_NamaKonser.TabIndex = 29;
             // 
             // Lbl_NamaKonser
@@ -208,7 +212,7 @@
             this.Lbl_Harga.AutoSize = true;
             this.Lbl_Harga.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Harga.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Lbl_Harga.Location = new System.Drawing.Point(256, 88);
+            this.Lbl_Harga.Location = new System.Drawing.Point(496, 40);
             this.Lbl_Harga.Name = "Lbl_Harga";
             this.Lbl_Harga.Size = new System.Drawing.Size(46, 16);
             this.Lbl_Harga.TabIndex = 32;
@@ -219,7 +223,7 @@
             this.Tlp_Harga.ColumnCount = 1;
             this.Tlp_Harga.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Tlp_Harga.Controls.Add(this.txt_Harga, 0, 0);
-            this.Tlp_Harga.Location = new System.Drawing.Point(259, 107);
+            this.Tlp_Harga.Location = new System.Drawing.Point(499, 59);
             this.Tlp_Harga.Name = "Tlp_Harga";
             this.Tlp_Harga.RowCount = 1;
             this.Tlp_Harga.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -241,7 +245,7 @@
             this.Tlp_Stok.ColumnCount = 1;
             this.Tlp_Stok.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Tlp_Stok.Controls.Add(this.txt_Stok, 0, 0);
-            this.Tlp_Stok.Location = new System.Drawing.Point(376, 107);
+            this.Tlp_Stok.Location = new System.Drawing.Point(259, 107);
             this.Tlp_Stok.Name = "Tlp_Stok";
             this.Tlp_Stok.RowCount = 1;
             this.Tlp_Stok.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -263,7 +267,7 @@
             this.Tlp_Lokasi.ColumnCount = 1;
             this.Tlp_Lokasi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Tlp_Lokasi.Controls.Add(this.txt_Lokasi, 0, 0);
-            this.Tlp_Lokasi.Location = new System.Drawing.Point(499, 107);
+            this.Tlp_Lokasi.Location = new System.Drawing.Point(382, 107);
             this.Tlp_Lokasi.Name = "Tlp_Lokasi";
             this.Tlp_Lokasi.RowCount = 1;
             this.Tlp_Lokasi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -284,11 +288,11 @@
             this.Tlp_TanggalKonser.ColumnCount = 1;
             this.Tlp_TanggalKonser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Tlp_TanggalKonser.Controls.Add(this.Dtp_TanggalKonser, 0, 0);
-            this.Tlp_TanggalKonser.Location = new System.Drawing.Point(616, 107);
+            this.Tlp_TanggalKonser.Location = new System.Drawing.Point(499, 107);
             this.Tlp_TanggalKonser.Name = "Tlp_TanggalKonser";
             this.Tlp_TanggalKonser.RowCount = 1;
             this.Tlp_TanggalKonser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Tlp_TanggalKonser.Size = new System.Drawing.Size(171, 27);
+            this.Tlp_TanggalKonser.Size = new System.Drawing.Size(228, 27);
             this.Tlp_TanggalKonser.TabIndex = 34;
             // 
             // Dtp_TanggalKonser
@@ -297,7 +301,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dtp_TanggalKonser.Location = new System.Drawing.Point(3, 3);
             this.Dtp_TanggalKonser.Name = "Dtp_TanggalKonser";
-            this.Dtp_TanggalKonser.Size = new System.Drawing.Size(165, 20);
+            this.Dtp_TanggalKonser.Size = new System.Drawing.Size(222, 20);
             this.Dtp_TanggalKonser.TabIndex = 0;
             this.Dtp_TanggalKonser.ValueChanged += new System.EventHandler(this.Dtp_TanggalKonser_ValueChanged);
             // 
@@ -306,7 +310,7 @@
             this.Lbl_Stok.AutoSize = true;
             this.Lbl_Stok.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Stok.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Lbl_Stok.Location = new System.Drawing.Point(373, 88);
+            this.Lbl_Stok.Location = new System.Drawing.Point(256, 88);
             this.Lbl_Stok.Name = "Lbl_Stok";
             this.Lbl_Stok.Size = new System.Drawing.Size(36, 16);
             this.Lbl_Stok.TabIndex = 35;
@@ -317,7 +321,7 @@
             this.Lbl_Lokasi.AutoSize = true;
             this.Lbl_Lokasi.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Lokasi.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Lbl_Lokasi.Location = new System.Drawing.Point(496, 88);
+            this.Lbl_Lokasi.Location = new System.Drawing.Point(379, 88);
             this.Lbl_Lokasi.Name = "Lbl_Lokasi";
             this.Lbl_Lokasi.Size = new System.Drawing.Size(50, 16);
             this.Lbl_Lokasi.TabIndex = 36;
@@ -328,7 +332,7 @@
             this.Lbl_TanggalKonser.AutoSize = true;
             this.Lbl_TanggalKonser.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_TanggalKonser.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Lbl_TanggalKonser.Location = new System.Drawing.Point(613, 88);
+            this.Lbl_TanggalKonser.Location = new System.Drawing.Point(496, 88);
             this.Lbl_TanggalKonser.Name = "Lbl_TanggalKonser";
             this.Lbl_TanggalKonser.Size = new System.Drawing.Size(109, 16);
             this.Lbl_TanggalKonser.TabIndex = 37;
@@ -454,7 +458,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 27);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(357, 27);
             this.tableLayoutPanel1.TabIndex = 47;
             // 
             // Btn_Reset
@@ -483,11 +487,45 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(109, 27);
             this.tableLayoutPanel2.TabIndex = 48;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.txt_HargaVIP, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(616, 59);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(111, 27);
+            this.tableLayoutPanel3.TabIndex = 49;
+            // 
+            // txt_HargaVIP
+            // 
+            this.txt_HargaVIP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_HargaVIP.Location = new System.Drawing.Point(3, 3);
+            this.txt_HargaVIP.Name = "txt_HargaVIP";
+            this.txt_HargaVIP.Size = new System.Drawing.Size(105, 20);
+            this.txt_HargaVIP.TabIndex = 39;
+            // 
+            // Lbl_HargaVIP
+            // 
+            this.Lbl_HargaVIP.AutoSize = true;
+            this.Lbl_HargaVIP.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_HargaVIP.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_HargaVIP.Location = new System.Drawing.Point(613, 40);
+            this.Lbl_HargaVIP.Name = "Lbl_HargaVIP";
+            this.Lbl_HargaVIP.Size = new System.Drawing.Size(76, 16);
+            this.Lbl_HargaVIP.TabIndex = 50;
+            this.Lbl_HargaVIP.Text = "Harga VIP";
+            // 
             // KelolaProduk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 451);
+            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.Lbl_HargaVIP);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Pb_SearchPengguna);
@@ -537,6 +575,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,5 +619,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button Btn_Reset;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox txt_HargaVIP;
+        private System.Windows.Forms.Label Lbl_HargaVIP;
     }
 }

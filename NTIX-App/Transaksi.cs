@@ -33,6 +33,8 @@ namespace NTIX_App
             txt_NamaPemesan.Text = string.Empty;
             txt_NoHp.Text = string.Empty;
             txt_SearchJenisMusik.Text = string.Empty;
+            Cb_Kategori.Text = string.Empty;
+            txt_NoUnik.Text = string.Empty;
         }
 
         private void Transaksi_Load(object sender, EventArgs e)
@@ -48,16 +50,12 @@ namespace NTIX_App
 
             Btn_Pesan.Click -= Btn_Pesan_Click;
             Btn_Pesan.Click += Btn_Pesan_Click;
-            string query = "SELECT l.id, u.nama_produk, u.harga_produk, l.qty,l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " +"FROM transaksi l " +"JOIN produk u ON l.id_produk = u.id";
 
-            f.showData(query, Dgv_Transaksi);
+            RefreshDataGridView();
         }
         private void RefreshDataGridView()
         {
-            string query = "SELECT l.id, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " +
-                           "FROM transaksi l " +
-                           "JOIN produk u ON l.id_produk = u.id " +
-                           "ORDER BY l.id DESC";
+            string query = "SELECT l.id, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " + "JOIN produk u ON l.id_produk = u.id " + "ORDER BY l.id DESC";
 
             f.showData(query, Dgv_Transaksi);
         }
@@ -66,8 +64,9 @@ namespace NTIX_App
             // Mendapatkan nilai dari kontrol input
             string namaPelanggan = txt_NamaPemesan.Text;
             string namaProduk = Cb_NamaKonser.Text;
+            string kategori = Cb_Kategori.Text; // Ambil nilai kategori dari ComboBox
             int qty = int.Parse(txt_Kuantitas.Text);
-            decimal NoHp = decimal.Parse(txt_NoHp.Text);
+            decimal noHp = decimal.Parse(txt_NoHp.Text);
             decimal totalHarga = decimal.Parse(txt_TotalPembayaran.Text);
             decimal uangBayar = decimal.Parse(txt_UangBayar.Text);
             decimal uangKembali = decimal.Parse(txt_UangKembali.Text);
@@ -82,6 +81,14 @@ namespace NTIX_App
                 // Membuka koneksi ke database
                 conn.Open();
 
+                // Pastikan semua input telah diisi
+                if (string.IsNullOrEmpty(namaPelanggan) || string.IsNullOrEmpty(namaProduk) ||
+                    qty <= 0 || noHp <= 0 || totalHarga <= 0 || uangBayar <= 0 || uangKembali < 0)
+                {
+                    MessageBox.Show("Harap lengkapi semua input.");
+                    return;
+                }
+
                 // Mendapatkan ID produk berdasarkan nama produk
                 int idProduk = GetProductId(namaProduk);
                 if (idProduk == -1)
@@ -91,16 +98,16 @@ namespace NTIX_App
                 }
 
                 // Menyimpan data transaksi ke tabel transaksi
-                MySqlCommand insertTransaksiCommand = new MySqlCommand("INSERT INTO transaksi (id_produk, nama_pelanggan, qty, no_hp, total_harga, uang_bayar, uang_kembalian, nomor_unik, created_at) VALUES (@idProduk, @namaPelanggan, @qty, @nohp, @totalHarga, @uangBayar, @uangKembalian, @nomorUnik, NOW())", conn);
+                MySqlCommand insertTransaksiCommand = new MySqlCommand("INSERT INTO transaksi (id_produk, nama_pelanggan, qty, no_hp, total_harga, uang_bayar, uang_kembalian, nomor_unik, kategori, created_at) VALUES (@idProduk, @namaPelanggan, @qty, @nohp, @totalHarga, @uangBayar, @uangKembalian, @nomorUnik, @kategori, NOW())", conn);
                 insertTransaksiCommand.Parameters.AddWithValue("@idProduk", idProduk);
                 insertTransaksiCommand.Parameters.AddWithValue("@namaPelanggan", namaPelanggan);
-                insertTransaksiCommand.Parameters.AddWithValue("@nama_produk", namaProduk);
                 insertTransaksiCommand.Parameters.AddWithValue("@qty", qty);
-                insertTransaksiCommand.Parameters.AddWithValue("@nohp", NoHp);
+                insertTransaksiCommand.Parameters.AddWithValue("@nohp", noHp);
                 insertTransaksiCommand.Parameters.AddWithValue("@totalHarga", totalHarga);
                 insertTransaksiCommand.Parameters.AddWithValue("@uangBayar", uangBayar);
                 insertTransaksiCommand.Parameters.AddWithValue("@uangKembalian", uangKembali);
                 insertTransaksiCommand.Parameters.AddWithValue("@nomorUnik", nomorUnik);
+                insertTransaksiCommand.Parameters.AddWithValue("@kategori", kategori); // Tambahkan parameter kategori
 
                 // Eksekusi perintah SQL
                 insertTransaksiCommand.ExecuteNonQuery();
@@ -124,6 +131,8 @@ namespace NTIX_App
                 // Memanggil kembali metode Transaksi_Load untuk merefresh form
                 RefreshDataGridView();
             }
+
+
         }
         private int GetProductId(string productName)
         {
@@ -273,30 +282,55 @@ namespace NTIX_App
             conn.Open();
             if (Cb_NamaKonser.Text != "")
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT harga_produk FROM produk WHERE nama_produk = @nama_produk", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT harga_produk, harga_produkVIP FROM produk WHERE nama_produk = @nama_produk", conn);
                 cmd.Parameters.AddWithValue("@nama_produk", Cb_NamaKonser.Text);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    // Assuming harga_produk is a numeric type, use the appropriate method
-                    txt_Harga.Text = reader.GetDecimal(0).ToString();
+                    // Clear existing items in the ComboBox kategori
+                    Cb_Kategori.Items.Clear();
+                    // Add the options "Reguler" and "VIP" to the ComboBox kategori
+                    Cb_Kategori.Items.Add("Reguler");
+                    Cb_Kategori.Items.Add("VIP");
+
+                    // Set the ComboBox kategori text if there is only one result
+                    if (Cb_Kategori.Items.Count == 1)
+                    {
+                        Cb_Kategori.SelectedIndex = 0;
+                    }
+
+                    int uniqueNumber = GenerateUniqueNumber();
+                    txt_NoUnik.Text = uniqueNumber.ToString();
                 }
                 else
                 {
                     // Handle the case where no matching record is found
-                    txt_Harga.Text = "Not Found";
+                    // txt_Harga.Text = "Not Found";
+                     txt_NoUnik.Text = ""; // Uncomment this line to clear NoUnik if no matching record found
+                    Cb_Kategori.Items.Clear(); // Clear ComboBox kategori if no matching record found
                 }
 
                 conn.Close();
             }
+
+
+
+        }
+
+        private int GenerateUniqueNumber()
+        {
+            Random random = new Random();
+            return random.Next(10000, 99999); // Contoh nomor unik antara 10000 dan 99999
         }
 
         private void Dgv_Transaksi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Btn_Pesan.Enabled = false;
             Cb_NamaKonser.Enabled = false;
+            txt_NoUnik.Enabled = false;
+            Cb_Kategori.Enabled = false;
             txt_Harga.Enabled = false;
             txt_Kuantitas.Enabled = false;
             txt_NamaPemesan.Enabled = false;
@@ -310,10 +344,12 @@ namespace NTIX_App
             txt_Harga.Text = decimal.Parse(dr.Cells[2].Value.ToString()).ToString("N2");
             txt_Kuantitas.Text = dr.Cells[3].Value.ToString();
             txt_NamaPemesan.Text = dr.Cells[4].Value.ToString();
-            txt_NoHp.Text = dr.Cells[5].Value.ToString();
-            txt_TotalPembayaran.Text = decimal.Parse(dr.Cells[6].Value.ToString()).ToString("N2");
-            txt_UangBayar.Text = decimal.Parse(dr.Cells[7]. Value.ToString()).ToString("N2");
-            txt_UangKembali.Text = decimal.Parse(dr.Cells[8].Value.ToString()).ToString("N2");
+            txt_NoUnik.Text = dr.Cells[5].Value.ToString();
+            Cb_Kategori.Text = dr.Cells[6].Value.ToString();
+            txt_NoHp.Text = dr.Cells[7].Value.ToString();
+            txt_TotalPembayaran.Text = decimal.Parse(dr.Cells[8].Value.ToString()).ToString("N2");
+            txt_UangBayar.Text = decimal.Parse(dr.Cells[9]. Value.ToString()).ToString("N2");
+            txt_UangKembali.Text = decimal.Parse(dr.Cells[10].Value.ToString()).ToString("N2");
             id = dr.Cells[0].Value.ToString();
         }
 
@@ -398,6 +434,42 @@ namespace NTIX_App
                 // Format and set the formatted text back to the TextBox
                 txt_UangBayar.Text = FormatCurrency(uangBayar);
             }
+        }
+
+        private void Cb_Kategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=;database=ntix-db");
+
+            conn.Open();
+            if (Cb_NamaKonser.Text != "")
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT harga_produk, harga_produkVIP FROM produk WHERE nama_produk = @nama_produk", conn);
+                cmd.Parameters.AddWithValue("@nama_produk", Cb_NamaKonser.Text);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    decimal harga = 0;
+                    if (Cb_Kategori.Text == "Reguler")
+                    {
+                        harga = reader.GetDecimal(0);
+                    }
+                    else if (Cb_Kategori.Text == "VIP")
+                    {
+                        harga = reader.GetDecimal(1);
+                    }
+                    txt_Harga.Text = harga.ToString();
+                }
+
+                conn.Close();
+            }
+
+        }
+
+        private void txt_NoUnik_TextChanged(object sender, EventArgs e)
+        {
+            txt_NoUnik.Enabled = false;
         }
     }
 }
