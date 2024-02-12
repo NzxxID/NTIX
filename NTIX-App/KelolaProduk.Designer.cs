@@ -89,7 +89,7 @@
             // 
             this.Btn_Keluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Keluar.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Keluar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Keluar.ForeColor = System.Drawing.Color.Black;
             this.Btn_Keluar.Location = new System.Drawing.Point(23, 390);
             this.Btn_Keluar.Name = "Btn_Keluar";
             this.Btn_Keluar.Size = new System.Drawing.Size(75, 23);
@@ -147,7 +147,7 @@
             // 
             this.Lbl_KelolaProduk.AutoSize = true;
             this.Lbl_KelolaProduk.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_KelolaProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_KelolaProduk.ForeColor = System.Drawing.Color.Black;
             this.Lbl_KelolaProduk.Location = new System.Drawing.Point(167, 12);
             this.Lbl_KelolaProduk.Name = "Lbl_KelolaProduk";
             this.Lbl_KelolaProduk.Size = new System.Drawing.Size(134, 23);
@@ -167,7 +167,7 @@
             // 
             this.Lbl_NamaKonser.AutoSize = true;
             this.Lbl_NamaKonser.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_NamaKonser.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_NamaKonser.ForeColor = System.Drawing.Color.Black;
             this.Lbl_NamaKonser.Location = new System.Drawing.Point(133, 40);
             this.Lbl_NamaKonser.Name = "Lbl_NamaKonser";
             this.Lbl_NamaKonser.Size = new System.Drawing.Size(95, 16);
@@ -200,7 +200,7 @@
             // 
             this.Lbl_JenisMusik.AutoSize = true;
             this.Lbl_JenisMusik.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_JenisMusik.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_JenisMusik.ForeColor = System.Drawing.Color.Black;
             this.Lbl_JenisMusik.Location = new System.Drawing.Point(133, 88);
             this.Lbl_JenisMusik.Name = "Lbl_JenisMusik";
             this.Lbl_JenisMusik.Size = new System.Drawing.Size(82, 16);
@@ -211,7 +211,7 @@
             // 
             this.Lbl_Harga.AutoSize = true;
             this.Lbl_Harga.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Harga.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_Harga.ForeColor = System.Drawing.Color.Black;
             this.Lbl_Harga.Location = new System.Drawing.Point(496, 40);
             this.Lbl_Harga.Name = "Lbl_Harga";
             this.Lbl_Harga.Size = new System.Drawing.Size(46, 16);
@@ -309,7 +309,7 @@
             // 
             this.Lbl_Stok.AutoSize = true;
             this.Lbl_Stok.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Stok.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_Stok.ForeColor = System.Drawing.Color.Black;
             this.Lbl_Stok.Location = new System.Drawing.Point(256, 88);
             this.Lbl_Stok.Name = "Lbl_Stok";
             this.Lbl_Stok.Size = new System.Drawing.Size(36, 16);
@@ -320,7 +320,7 @@
             // 
             this.Lbl_Lokasi.AutoSize = true;
             this.Lbl_Lokasi.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Lokasi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_Lokasi.ForeColor = System.Drawing.Color.Black;
             this.Lbl_Lokasi.Location = new System.Drawing.Point(379, 88);
             this.Lbl_Lokasi.Name = "Lbl_Lokasi";
             this.Lbl_Lokasi.Size = new System.Drawing.Size(50, 16);
@@ -331,7 +331,7 @@
             // 
             this.Lbl_TanggalKonser.AutoSize = true;
             this.Lbl_TanggalKonser.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_TanggalKonser.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_TanggalKonser.ForeColor = System.Drawing.Color.Black;
             this.Lbl_TanggalKonser.Location = new System.Drawing.Point(496, 88);
             this.Lbl_TanggalKonser.Name = "Lbl_TanggalKonser";
             this.Lbl_TanggalKonser.Size = new System.Drawing.Size(109, 16);
@@ -381,7 +381,7 @@
             this.Btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Edit.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Edit.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Edit.ForeColor = System.Drawing.Color.Black;
             this.Btn_Edit.Location = new System.Drawing.Point(3, 3);
             this.Btn_Edit.Name = "Btn_Edit";
             this.Btn_Edit.Size = new System.Drawing.Size(103, 21);
@@ -407,7 +407,7 @@
             this.Btn_Simpan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Simpan.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Simpan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Simpan.ForeColor = System.Drawing.Color.Black;
             this.Btn_Simpan.Location = new System.Drawing.Point(3, 3);
             this.Btn_Simpan.Name = "Btn_Simpan";
             this.Btn_Simpan.Size = new System.Drawing.Size(103, 21);
@@ -466,7 +466,7 @@
             this.Btn_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Reset.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Reset.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Reset.ForeColor = System.Drawing.Color.Black;
             this.Btn_Reset.Location = new System.Drawing.Point(3, 3);
             this.Btn_Reset.Name = "Btn_Reset";
             this.Btn_Reset.Size = new System.Drawing.Size(103, 21);
@@ -512,7 +512,7 @@
             // 
             this.Lbl_HargaVIP.AutoSize = true;
             this.Lbl_HargaVIP.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_HargaVIP.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_HargaVIP.ForeColor = System.Drawing.Color.Black;
             this.Lbl_HargaVIP.Location = new System.Drawing.Point(613, 40);
             this.Lbl_HargaVIP.Name = "Lbl_HargaVIP";
             this.Lbl_HargaVIP.Size = new System.Drawing.Size(76, 16);

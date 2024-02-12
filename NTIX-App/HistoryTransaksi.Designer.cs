@@ -89,7 +89,7 @@
             // 
             this.Btn_Keluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Keluar.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Keluar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Keluar.ForeColor = System.Drawing.Color.Black;
             this.Btn_Keluar.Location = new System.Drawing.Point(23, 390);
             this.Btn_Keluar.Name = "Btn_Keluar";
             this.Btn_Keluar.Size = new System.Drawing.Size(75, 23);
@@ -129,7 +129,7 @@
             // 
             this.Btn_UnduhPdfDataTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_UnduhPdfDataTransaksi.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_UnduhPdfDataTransaksi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_UnduhPdfDataTransaksi.ForeColor = System.Drawing.Color.Black;
             this.Btn_UnduhPdfDataTransaksi.Location = new System.Drawing.Point(588, 356);
             this.Btn_UnduhPdfDataTransaksi.Name = "Btn_UnduhPdfDataTransaksi";
             this.Btn_UnduhPdfDataTransaksi.Size = new System.Drawing.Size(194, 23);
@@ -152,7 +152,7 @@
             // txt_SearchDataTransaksi
             // 
             this.txt_SearchDataTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_SearchDataTransaksi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_SearchDataTransaksi.ForeColor = System.Drawing.Color.Black;
             this.txt_SearchDataTransaksi.Location = new System.Drawing.Point(588, 35);
             this.txt_SearchDataTransaksi.Name = "txt_SearchDataTransaksi";
             this.txt_SearchDataTransaksi.Size = new System.Drawing.Size(194, 20);
@@ -163,7 +163,7 @@
             // 
             this.Lbl_DataTransaksi.AutoSize = true;
             this.Lbl_DataTransaksi.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DataTransaksi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_DataTransaksi.ForeColor = System.Drawing.Color.Black;
             this.Lbl_DataTransaksi.Location = new System.Drawing.Point(127, 9);
             this.Lbl_DataTransaksi.Name = "Lbl_DataTransaksi";
             this.Lbl_DataTransaksi.Size = new System.Drawing.Size(136, 23);
@@ -174,7 +174,7 @@
             // 
             this.Lbl_To.AutoSize = true;
             this.Lbl_To.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_To.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_To.ForeColor = System.Drawing.Color.Black;
             this.Lbl_To.Location = new System.Drawing.Point(284, 40);
             this.Lbl_To.Name = "Lbl_To";
             this.Lbl_To.Size = new System.Drawing.Size(18, 11);
@@ -185,7 +185,7 @@
             // 
             this.Btn_CheckDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_CheckDataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_CheckDataProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_CheckDataProduk.ForeColor = System.Drawing.Color.Black;
             this.Btn_CheckDataProduk.Location = new System.Drawing.Point(131, 390);
             this.Btn_CheckDataProduk.Name = "Btn_CheckDataProduk";
             this.Btn_CheckDataProduk.Size = new System.Drawing.Size(194, 23);
@@ -198,7 +198,7 @@
             // 
             this.Btn_RisetDataTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_RisetDataTransaksi.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_RisetDataTransaksi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_RisetDataTransaksi.ForeColor = System.Drawing.Color.Black;
             this.Btn_RisetDataTransaksi.Location = new System.Drawing.Point(588, 385);
             this.Btn_RisetDataTransaksi.Name = "Btn_RisetDataTransaksi";
             this.Btn_RisetDataTransaksi.Size = new System.Drawing.Size(194, 23);
@@ -211,7 +211,7 @@
             // 
             this.Btn_CheckDataKegiatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_CheckDataKegiatan.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_CheckDataKegiatan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_CheckDataKegiatan.ForeColor = System.Drawing.Color.Black;
             this.Btn_CheckDataKegiatan.Location = new System.Drawing.Point(131, 361);
             this.Btn_CheckDataKegiatan.Name = "Btn_CheckDataKegiatan";
             this.Btn_CheckDataKegiatan.Size = new System.Drawing.Size(194, 23);
@@ -223,7 +223,7 @@
             // Btn_FilterTransaksi
             // 
             this.Btn_FilterTransaksi.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_FilterTransaksi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_FilterTransaksi.ForeColor = System.Drawing.Color.Black;
             this.Btn_FilterTransaksi.Location = new System.Drawing.Point(461, 33);
             this.Btn_FilterTransaksi.Name = "Btn_FilterTransaksi";
             this.Btn_FilterTransaksi.Size = new System.Drawing.Size(75, 23);

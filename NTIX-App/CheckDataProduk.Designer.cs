@@ -79,7 +79,7 @@
             // 
             this.Btn_Keluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Keluar.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Keluar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Keluar.ForeColor = System.Drawing.Color.Black;
             this.Btn_Keluar.Location = new System.Drawing.Point(23, 390);
             this.Btn_Keluar.Name = "Btn_Keluar";
             this.Btn_Keluar.Size = new System.Drawing.Size(75, 23);
@@ -102,7 +102,7 @@
             // 
             this.Btn_RisetDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_RisetDataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_RisetDataProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_RisetDataProduk.ForeColor = System.Drawing.Color.Black;
             this.Btn_RisetDataProduk.Location = new System.Drawing.Point(587, 390);
             this.Btn_RisetDataProduk.Name = "Btn_RisetDataProduk";
             this.Btn_RisetDataProduk.Size = new System.Drawing.Size(194, 23);
@@ -115,7 +115,7 @@
             // 
             this.Btn_CheckDataTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_CheckDataTransaksi.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_CheckDataTransaksi.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_CheckDataTransaksi.ForeColor = System.Drawing.Color.Black;
             this.Btn_CheckDataTransaksi.Location = new System.Drawing.Point(130, 358);
             this.Btn_CheckDataTransaksi.Name = "Btn_CheckDataTransaksi";
             this.Btn_CheckDataTransaksi.Size = new System.Drawing.Size(194, 23);
@@ -128,7 +128,7 @@
             // 
             this.Lbl_To.AutoSize = true;
             this.Lbl_To.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_To.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_To.ForeColor = System.Drawing.Color.Black;
             this.Lbl_To.Location = new System.Drawing.Point(283, 42);
             this.Lbl_To.Name = "Lbl_To";
             this.Lbl_To.Size = new System.Drawing.Size(18, 11);
@@ -166,7 +166,7 @@
             // 
             this.Btn_UnduhPdfDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_UnduhPdfDataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_UnduhPdfDataProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_UnduhPdfDataProduk.ForeColor = System.Drawing.Color.Black;
             this.Btn_UnduhPdfDataProduk.Location = new System.Drawing.Point(587, 358);
             this.Btn_UnduhPdfDataProduk.Name = "Btn_UnduhPdfDataProduk";
             this.Btn_UnduhPdfDataProduk.Size = new System.Drawing.Size(194, 23);
@@ -189,7 +189,7 @@
             // txt_SearchDataProduk
             // 
             this.txt_SearchDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_SearchDataProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_SearchDataProduk.ForeColor = System.Drawing.Color.Black;
             this.txt_SearchDataProduk.Location = new System.Drawing.Point(587, 37);
             this.txt_SearchDataProduk.Name = "txt_SearchDataProduk";
             this.txt_SearchDataProduk.Size = new System.Drawing.Size(194, 20);
@@ -200,7 +200,7 @@
             // 
             this.Lbl_DataProduk.AutoSize = true;
             this.Lbl_DataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DataProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_DataProduk.ForeColor = System.Drawing.Color.Black;
             this.Lbl_DataProduk.Location = new System.Drawing.Point(126, 9);
             this.Lbl_DataProduk.Name = "Lbl_DataProduk";
             this.Lbl_DataProduk.Size = new System.Drawing.Size(117, 23);
@@ -211,7 +211,7 @@
             // 
             this.Btn_CheckDataKegiatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_CheckDataKegiatan.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_CheckDataKegiatan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_CheckDataKegiatan.ForeColor = System.Drawing.Color.Black;
             this.Btn_CheckDataKegiatan.Location = new System.Drawing.Point(130, 390);
             this.Btn_CheckDataKegiatan.Name = "Btn_CheckDataKegiatan";
             this.Btn_CheckDataKegiatan.Size = new System.Drawing.Size(194, 23);
@@ -223,7 +223,7 @@
             // Btn_FilterProduk
             // 
             this.Btn_FilterProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_FilterProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_FilterProduk.ForeColor = System.Drawing.Color.Black;
             this.Btn_FilterProduk.Location = new System.Drawing.Point(460, 36);
             this.Btn_FilterProduk.Name = "Btn_FilterProduk";
             this.Btn_FilterProduk.Size = new System.Drawing.Size(75, 23);

@@ -89,7 +89,7 @@
             // 
             this.Btn_Keluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Keluar.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Keluar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Keluar.ForeColor = System.Drawing.Color.Black;
             this.Btn_Keluar.Location = new System.Drawing.Point(23, 390);
             this.Btn_Keluar.Name = "Btn_Keluar";
             this.Btn_Keluar.Size = new System.Drawing.Size(75, 23);
@@ -101,7 +101,7 @@
             // txt_SearchDaftarPengguna
             // 
             this.txt_SearchDaftarPengguna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_SearchDaftarPengguna.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_SearchDaftarPengguna.ForeColor = System.Drawing.Color.Black;
             this.txt_SearchDaftarPengguna.Location = new System.Drawing.Point(593, 19);
             this.txt_SearchDaftarPengguna.Name = "txt_SearchDaftarPengguna";
             this.txt_SearchDaftarPengguna.Size = new System.Drawing.Size(194, 20);
@@ -123,7 +123,7 @@
             // 
             this.Btn_TambahPengguna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_TambahPengguna.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_TambahPengguna.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_TambahPengguna.ForeColor = System.Drawing.Color.Black;
             this.Btn_TambahPengguna.Location = new System.Drawing.Point(593, 193);
             this.Btn_TambahPengguna.Name = "Btn_TambahPengguna";
             this.Btn_TambahPengguna.Size = new System.Drawing.Size(194, 23);
@@ -136,7 +136,7 @@
             // 
             this.Lbl_DaftarPengguna.AutoSize = true;
             this.Lbl_DaftarPengguna.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DaftarPengguna.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_DaftarPengguna.ForeColor = System.Drawing.Color.Black;
             this.Lbl_DaftarPengguna.Location = new System.Drawing.Point(132, 12);
             this.Lbl_DaftarPengguna.Name = "Lbl_DaftarPengguna";
             this.Lbl_DaftarPengguna.Size = new System.Drawing.Size(153, 23);
@@ -172,7 +172,7 @@
             // 
             this.Btn_TambahProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_TambahProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_TambahProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_TambahProduk.ForeColor = System.Drawing.Color.Black;
             this.Btn_TambahProduk.Location = new System.Drawing.Point(593, 404);
             this.Btn_TambahProduk.Name = "Btn_TambahProduk";
             this.Btn_TambahProduk.Size = new System.Drawing.Size(194, 23);
@@ -206,7 +206,7 @@
             // 
             this.Lbl_DaftarProduk.AutoSize = true;
             this.Lbl_DaftarProduk.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DaftarProduk.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_DaftarProduk.ForeColor = System.Drawing.Color.Black;
             this.Lbl_DaftarProduk.Location = new System.Drawing.Point(132, 223);
             this.Lbl_DaftarProduk.Name = "Lbl_DaftarProduk";
             this.Lbl_DaftarProduk.Size = new System.Drawing.Size(131, 23);

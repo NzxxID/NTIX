@@ -224,6 +224,7 @@ namespace NTIX_App
         {
             Btn_Pesan.Enabled = true;
             Cb_NamaKonser.Enabled = true;
+            Cb_Kategori.Enabled = true;
             txt_Kuantitas.Enabled = true;
             txt_NamaPemesan.Enabled = true;
             txt_NoHp.Enabled = true;
@@ -248,24 +249,24 @@ namespace NTIX_App
             conn.Open();
             if (txt_SearchJenisMusik.Text != "")
             {
-                // Use the LIKE operator in the query
+                // Gunakan operator LIKE dalam query
                 MySqlCommand cmd = new MySqlCommand("SELECT nama_produk FROM produk WHERE jenis_musik LIKE @jenis_musik", conn);
 
-                // Use '%' to allow for partial matches
+                // Gunakan '%' untuk memungkinkan pencocokan parsial
                 cmd.Parameters.AddWithValue("@jenis_musik", "%" + txt_SearchJenisMusik.Text + "%");
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                // Clear existing items in the ComboBox
+                // Hapus item yang ada di ComboBox
                 Cb_NamaKonser.Items.Clear();
 
                 while (reader.Read())
                 {
-                    // Add each result to the ComboBox
+                    // Tambahkan setiap hasil ke ComboBox
                     Cb_NamaKonser.Items.Add(reader.GetString(0));
                 }
 
-                // Set the ComboBox text if there is only one result
+                // Set teks ComboBox jika hanya ada satu hasil
                 if (Cb_NamaKonser.Items.Count == 1)
                 {
                     Cb_NamaKonser.SelectedIndex = 0;
@@ -273,6 +274,32 @@ namespace NTIX_App
 
                 conn.Close();
             }
+            else
+            {
+                // Bersihkan ComboBox dan TextBox dan segarkan data
+                RefreshNamaKonser();
+                Cb_NamaKonser.Text = ""; // Bersihkan item yang dipilih di ComboBox
+                txt_NoUnik.Text = ""; // Bersihkan NoUnik
+            }
+        }
+        private void RefreshNamaKonser()
+        {
+            MySqlConnection conn = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=;database=ntix-db");
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT nama_produk FROM produk", conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            // Clear existing items in the ComboBox
+            Cb_NamaKonser.Items.Clear();
+
+            while (reader.Read())
+            {
+                // Add each product to the ComboBox
+                Cb_NamaKonser.Items.Add(reader.GetString(0));
+            }
+
+            conn.Close();
         }
 
         private void Cb_NamaKonser_SelectedIndexChanged(object sender, EventArgs e)
@@ -433,11 +460,45 @@ namespace NTIX_App
 
         private void txt_UangBayar_TextChanged(object sender, EventArgs e)
         {
-            if (decimal.TryParse(txt_UangBayar.Text, out decimal uangBayar))
+            if (!string.IsNullOrEmpty(txt_TotalPembayaran.Text))
             {
-                // Format and set the formatted text back to the TextBox
-                txt_UangBayar.Text = FormatCurrency(uangBayar);
+                if (decimal.TryParse(txt_TotalPembayaran.Text, out decimal payment) && decimal.TryParse(txt_UangBayar.Text, out decimal cash))
+                {
+                    decimal returnAmount = cash - payment;
+
+                    // Format nilai returnAmount sebagai mata uang Rupiah dan tampilkan pada returntxt
+                    txt_UangKembali.Text = returnAmount.ToString("C0", new System.Globalization.CultureInfo("id-ID")).Replace("Rp", "").Trim();
+                }
+                else
+                {
+                    txt_UangKembali.Text = "";
+                }
             }
+            else
+            {
+                txt_UangKembali.Text = "";
+            }
+
+            // Format angka seperti mata uang Rupiah pada cashtxt
+            if (decimal.TryParse(txt_UangBayar.Text, out decimal cashValue))
+            {
+                txt_UangBayar.Text = cashValue.ToString("N0"); // Format sebagai angka dengan titik ribuan
+                txt_UangBayar.SelectionStart = txt_UangBayar.Text.Length;
+            }
+            else
+            {
+                txt_UangBayar.Text = "";
+            }
+            if (decimal.TryParse(txt_TotalPembayaran.Text, out decimal paymentValue))
+            {
+                txt_TotalPembayaran.Text = paymentValue.ToString("N0"); // Format sebagai angka dengan titik ribuan
+                txt_TotalPembayaran.SelectionStart = txt_TotalPembayaran.Text.Length;
+            }
+            else
+            {
+                txt_TotalPembayaran.Text = "";
+            }
+
         }
 
         private void Cb_Kategori_SelectedIndexChanged(object sender, EventArgs e)

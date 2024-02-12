@@ -98,7 +98,7 @@
             // 
             this.Btn_Keluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Keluar.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Keluar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Keluar.ForeColor = System.Drawing.Color.Black;
             this.Btn_Keluar.Location = new System.Drawing.Point(23, 390);
             this.Btn_Keluar.Name = "Btn_Keluar";
             this.Btn_Keluar.Size = new System.Drawing.Size(75, 23);
@@ -132,7 +132,7 @@
             // 
             this.Lbl_JenisMusik.AutoSize = true;
             this.Lbl_JenisMusik.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_JenisMusik.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lbl_JenisMusik.ForeColor = System.Drawing.Color.Black;
             this.Lbl_JenisMusik.Location = new System.Drawing.Point(133, 11);
             this.Lbl_JenisMusik.Name = "Lbl_JenisMusik";
             this.Lbl_JenisMusik.Size = new System.Drawing.Size(82, 16);
@@ -141,7 +141,7 @@
             // 
             // txt_SearchJenisMusik
             // 
-            this.txt_SearchJenisMusik.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_SearchJenisMusik.ForeColor = System.Drawing.Color.Black;
             this.txt_SearchJenisMusik.Location = new System.Drawing.Point(136, 30);
             this.txt_SearchJenisMusik.Name = "txt_SearchJenisMusik";
             this.txt_SearchJenisMusik.Size = new System.Drawing.Size(174, 20);
@@ -163,7 +163,7 @@
             // 
             this.Cb_NamaKonser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cb_NamaKonser.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Cb_NamaKonser.ForeColor = System.Drawing.Color.Black;
             this.Cb_NamaKonser.FormattingEnabled = true;
             this.Cb_NamaKonser.Location = new System.Drawing.Point(16, 39);
             this.Cb_NamaKonser.Name = "Cb_NamaKonser";
@@ -173,7 +173,7 @@
             // 
             // txt_Harga
             // 
-            this.txt_Harga.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_Harga.ForeColor = System.Drawing.Color.Black;
             this.txt_Harga.Location = new System.Drawing.Point(3, 3);
             this.txt_Harga.Name = "txt_Harga";
             this.txt_Harga.Size = new System.Drawing.Size(168, 20);
@@ -230,7 +230,7 @@
             // 
             // txt_Kuantitas
             // 
-            this.txt_Kuantitas.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_Kuantitas.ForeColor = System.Drawing.Color.Black;
             this.txt_Kuantitas.Location = new System.Drawing.Point(3, 3);
             this.txt_Kuantitas.Name = "txt_Kuantitas";
             this.txt_Kuantitas.Size = new System.Drawing.Size(171, 20);
@@ -275,7 +275,7 @@
             // 
             this.Cb_Kategori.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cb_Kategori.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Cb_Kategori.ForeColor = System.Drawing.Color.Black;
             this.Cb_Kategori.FormattingEnabled = true;
             this.Cb_Kategori.Items.AddRange(new object[] {
             "Reguler",
@@ -313,7 +313,7 @@
             // 
             // txt_NoUnik
             // 
-            this.txt_NoUnik.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_NoUnik.ForeColor = System.Drawing.Color.Black;
             this.txt_NoUnik.Location = new System.Drawing.Point(3, 3);
             this.txt_NoUnik.Name = "txt_NoUnik";
             this.txt_NoUnik.Size = new System.Drawing.Size(168, 20);
@@ -359,7 +359,7 @@
             // txt_NoHp
             // 
             this.txt_NoHp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_NoHp.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_NoHp.ForeColor = System.Drawing.Color.Black;
             this.txt_NoHp.Location = new System.Drawing.Point(9, 75);
             this.txt_NoHp.Name = "txt_NoHp";
             this.txt_NoHp.Size = new System.Drawing.Size(190, 20);
@@ -381,7 +381,7 @@
             // txt_NamaPemesan
             // 
             this.txt_NamaPemesan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_NamaPemesan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_NamaPemesan.ForeColor = System.Drawing.Color.Black;
             this.txt_NamaPemesan.Location = new System.Drawing.Point(9, 33);
             this.txt_NamaPemesan.Name = "txt_NamaPemesan";
             this.txt_NamaPemesan.Size = new System.Drawing.Size(190, 20);
@@ -408,7 +408,7 @@
             // 
             this.Btn_Batal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Batal.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Batal.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Batal.ForeColor = System.Drawing.Color.Black;
             this.Btn_Batal.Location = new System.Drawing.Point(25, 152);
             this.Btn_Batal.Name = "Btn_Batal";
             this.Btn_Batal.Size = new System.Drawing.Size(75, 23);
@@ -421,7 +421,7 @@
             // 
             this.Btn_Pesan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Pesan.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Pesan.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Pesan.ForeColor = System.Drawing.Color.Black;
             this.Btn_Pesan.Location = new System.Drawing.Point(106, 152);
             this.Btn_Pesan.Name = "Btn_Pesan";
             this.Btn_Pesan.Size = new System.Drawing.Size(75, 23);
@@ -443,7 +443,7 @@
             // 
             // txt_UangKembali
             // 
-            this.txt_UangKembali.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_UangKembali.ForeColor = System.Drawing.Color.Black;
             this.txt_UangKembali.Location = new System.Drawing.Point(9, 117);
             this.txt_UangKembali.Name = "txt_UangKembali";
             this.txt_UangKembali.Size = new System.Drawing.Size(190, 20);
@@ -465,7 +465,7 @@
             // txt_UangBayar
             // 
             this.txt_UangBayar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_UangBayar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_UangBayar.ForeColor = System.Drawing.Color.Black;
             this.txt_UangBayar.Location = new System.Drawing.Point(9, 75);
             this.txt_UangBayar.Name = "txt_UangBayar";
             this.txt_UangBayar.Size = new System.Drawing.Size(190, 20);
@@ -488,7 +488,7 @@
             // txt_TotalPembayaran
             // 
             this.txt_TotalPembayaran.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_TotalPembayaran.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txt_TotalPembayaran.ForeColor = System.Drawing.Color.Black;
             this.txt_TotalPembayaran.Location = new System.Drawing.Point(9, 33);
             this.txt_TotalPembayaran.Name = "txt_TotalPembayaran";
             this.txt_TotalPembayaran.Size = new System.Drawing.Size(190, 20);
@@ -512,7 +512,7 @@
             // 
             this.Btn_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Print.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Print.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Print.ForeColor = System.Drawing.Color.Black;
             this.Btn_Print.Location = new System.Drawing.Point(570, 382);
             this.Btn_Print.Name = "Btn_Print";
             this.Btn_Print.Size = new System.Drawing.Size(209, 23);
@@ -535,7 +535,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(570, 411);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(209, 23);

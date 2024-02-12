@@ -48,7 +48,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(7, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 29);
@@ -58,7 +58,7 @@
             // Btn_Tutup
             // 
             this.Btn_Tutup.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Tutup.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Btn_Tutup.ForeColor = System.Drawing.Color.Black;
             this.Btn_Tutup.Location = new System.Drawing.Point(12, 362);
             this.Btn_Tutup.Name = "Btn_Tutup";
             this.Btn_Tutup.Size = new System.Drawing.Size(165, 23);

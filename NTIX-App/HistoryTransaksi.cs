@@ -146,7 +146,7 @@ namespace NTIX_App
                         // Tambahkan kondisi search
                         if (!string.IsNullOrEmpty(txt_SearchDataTransaksi.Text))
                         {
-                            whereCondition += " u.nama_produk LIKE @search";
+                            whereCondition += " (u.nama_produk LIKE @search OR " + "u.harga_produk LIKE @search OR " + "l.nama_pelanggan LIKE @search OR " + "l.nomor_unik LIKE @search OR " + "l.no_hp LIKE @search)";
                             parameters.Add(new MySqlParameter("@search", $"%{txt_SearchDataTransaksi.Text}%"));
                         }
 
@@ -213,7 +213,7 @@ namespace NTIX_App
 
             // Tambahkan tanggal saat diprint
             title.Add(new Paragraph($"Tanggal Cetak: {DateTime.Now.ToShortDateString()}", font));
-            title.SpacingAfter = 10;
+            title.SpacingAfter = 20;
 
             // Menentukan lokasi penyimpanan file PDF
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();

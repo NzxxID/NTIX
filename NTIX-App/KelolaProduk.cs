@@ -188,6 +188,9 @@ namespace NTIX_App
 
         private void Btn_Reset_Click(object sender, EventArgs e)
         {
+            Btn_Edit.Enabled = false;
+            Btn_Hapus.Enabled = false;
+            Btn_Simpan.Enabled = true;
             clear();
         }
     }

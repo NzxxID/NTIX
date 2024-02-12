@@ -134,7 +134,7 @@ namespace NTIX_App
                         conn.Open();
                     using (DataTable dt = new DataTable("produk"))
                     {
-                        string searchQuery = "SELECT * FROM produk WHERE nama_produk LIKE @searchText";
+                        string searchQuery = "SELECT * FROM produk WHERE nama_produk LIKE @searchText OR jenis_musik LIKE @searchText";
 
                         using (MySqlCommand cmd = new MySqlCommand(searchQuery, conn))
                         {
@@ -156,78 +156,122 @@ namespace NTIX_App
         private void Btn_UnduhPdfDataProduk_Click(object sender, EventArgs e)
         {
             // Membuat instance dari class Document iTextSharp
-            Document doc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
+            Document doc = new Document(PageSize.A4.Rotate(), 20f, 20f, 20f, 0f);
 
-            iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16, iTextSharp.text.Font.BOLD);
-            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12);
-
+            iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 16, iTextSharp.text.Font.BOLD);
+            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12);
 
             // Membuat objek paragraph dengan judul
-            Paragraph title = new Paragraph("Laporan Kegiatan", fontTitle);
+            Paragraph title = new Paragraph("Laporan Data Produk", fontTitle);
             title.Alignment = Element.ALIGN_CENTER; // Mengatur perataan teks
-            title.SpacingAfter = 40;
-            title.SpacingBefore = 40;
+            title.SpacingAfter = 20;
+
+            // Tambahkan tanggal saat diprint
+            title.Add(new Paragraph($"Tanggal Cetak: {DateTime.Now.ToShortDateString()}", font));
+            title.SpacingAfter = 20;
 
             // Menentukan lokasi penyimpanan file PDF
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "PDF (.pdf)|.pdf";
-            saveFileDialog1.FileName = "laporan Kegiatan.pdf";
+            saveFileDialog1.FileName = "laporan Data Produk.pdf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Membuka file PDF
-                PdfWriter.GetInstance(doc, new FileStream(saveFileDialog1.FileName, FileMode.Create));
-
-                // Membuka dokumen
-                doc.Open();
-
-                // Membuat table dengan jumlah kolom sesuai dengan jumlah kolom di dalam DataGridView
-                PdfPTable table = new PdfPTable(Dgv_DataProduk.Columns.Count);
-
-                // Menambahkan header ke dalam table
-                for (int i = 0; i < Dgv_DataProduk.Columns.Count; i++)
+                try
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(Dgv_DataProduk.Columns[i].HeaderText));
-                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                    cell.Padding = 5;
-                    cell.BorderWidth = 1;
-                    table.AddCell(cell);
-                }
+                    // Membuka file PDF
+                    PdfWriter.GetInstance(doc, new FileStream(saveFileDialog1.FileName, FileMode.Create));
 
-                // Menambahkan data dari DataGridView ke dalam table
-                for (int i = 0; i < Dgv_DataProduk.Rows.Count; i++)
-                {
-                    for (int j = 0; j < Dgv_DataProduk.Columns.Count; j++)
+                    // Membuka dokumen
+                    doc.Open();
+
+                    // Query dasar
+                    string baseQuery = "SELECT * FROM produk";
+
+                    // Persiapkan parameter dan kondisi WHERE
+                    List<MySqlParameter> parameters = new List<MySqlParameter>();
+                    string whereCondition = "";
+
+                    // Tambahkan kondisi tanggal jika dipilih
+                    if (Dtp_DataProduk1.Value != DateTime.Now || Dtp_DataProduk2.Value != DateTime.Now)
                     {
-                        if (Dgv_DataProduk[j, i].Value != null)
+                        if (!string.IsNullOrEmpty(whereCondition))
+                            whereCondition += " AND";
+                        whereCondition += " DATE(created_at) BETWEEN @fromdate AND @todate";
+                        parameters.Add(new MySqlParameter("@fromdate", Dtp_DataProduk1.Value.Date));
+                        parameters.Add(new MySqlParameter("@todate", Dtp_DataProduk2.Value.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                    }
+
+                    // Gabungkan semua kondisi menjadi satu query
+                    string fullQuery = baseQuery;
+                    if (!string.IsNullOrEmpty(whereCondition))
+                        fullQuery += " WHERE" + whereCondition;
+
+                    // Tambahkan pengurutan berdasarkan ID
+                    fullQuery += " ORDER BY id ASC";
+
+                    // Eksekusi query
+                    using (MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=ntix-db"))
+                    {
+                        conn.Open();
+                        using (MySqlCommand cmd = new MySqlCommand(fullQuery, conn))
                         {
-                            PdfPCell cell = new PdfPCell(new Phrase(Dgv_DataProduk[j, i].Value.ToString()));
-                            cell.Padding = 5;
-                            cell.BorderWidth = 1;
-                            table.AddCell(cell);
+                            foreach (MySqlParameter parameter in parameters)
+                                cmd.Parameters.Add(parameter);
+
+                            using (MySqlDataReader rdr = cmd.ExecuteReader())
+                            {
+                                PdfPTable table = new PdfPTable(rdr.FieldCount);
+
+                                // Menambahkan header ke dalam table
+                                for (int i = 0; i < rdr.FieldCount; i++)
+                                {
+                                    PdfPCell cell = new PdfPCell(new Phrase(rdr.GetName(i), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7, iTextSharp.text.Font.BOLD)));
+                                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                    cell.Padding = 5;
+                                    cell.BorderWidth = 1;
+                                    table.AddCell(cell);
+                                }
+
+                                // Menambahkan data dari hasil query ke dalam table
+                                while (rdr.Read())
+                                {
+                                    for (int i = 0; i < rdr.FieldCount; i++)
+                                    {
+                                        PdfPCell cell = new PdfPCell(new Phrase(rdr[i].ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7)));
+                                        cell.Padding = 5;
+                                        cell.BorderWidth = 1;
+                                        table.AddCell(cell);
+                                    }
+                                }
+
+                                // Mengatur garis di sekitar tabel
+                                table.DefaultCell.BorderWidth = 0;
+                                table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
+                                table.DefaultCell.Padding = 10;
+                                table.WidthPercentage = 100;
+
+                                // Menambahkan paragraph ke dokumen
+                                doc.Add(title);
+
+                                // Menambahkan table ke dalam dokumen
+                                doc.Add(table);
+                            }
                         }
                     }
+
+                    // Menutup dokumen dan writer
+                    doc.Close();
+                    MessageBox.Show("Data berhasil di-print ke dalam file PDF.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Membuka file PDF setelah disimpan
+                    Process.Start(saveFileDialog1.FileName);
                 }
-
-                // Mengatur garis di sekitar tabel
-                table.DefaultCell.BorderWidth = 0;
-                table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
-                table.DefaultCell.Padding = 7;
-                table.WidthPercentage = 100;
-
-                // Menambahkan paragraph ke dokumen
-                doc.Add(title);
-
-                // Menambahkan table ke dalam dokumen
-                doc.Add(table);
-
-                // Menutup dokumen dan writer
-                doc.Close();
-                MessageBox.Show("Data berhasil di-print ke dalam file PDF.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Membuka file PDF setelah disimpan
-                Process.Start(saveFileDialog1.FileName);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -30,17 +30,18 @@ namespace NTIX_App
         private string defaultQuery;
         private void LoadData()
         {
-           
+
         }
 
         private void LoadData(string query = null)
         {
             query = query ?? defaultQuery;
+            query += " ORDER BY l.id ASC"; // Menambahkan pernyataan untuk mengurutkan berdasarkan ID
             f.showData(query, Dgv_DataKegiatan);
         }
         private void Cb_Role_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void BerandaOwner_Load(object sender, EventArgs e)
@@ -48,6 +49,9 @@ namespace NTIX_App
             initialFilter = defaultQuery;
             string query = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at FROM log l JOIN users u ON l.id_user = u.id";
             f.showData(query, Dgv_DataKegiatan);
+
+            // Memastikan data terurut berdasarkan ID saat pertama kali dimuat
+            LoadData(query);
         }
 
         private void Btn_Keluar_Click(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace NTIX_App
 
         private void Dgv_DataTransaksi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+
         }
 
         private void txt_SearchDataKegiatan_TextChanged(object sender, EventArgs e)
@@ -125,7 +129,7 @@ namespace NTIX_App
                 DateTime toDate = Dtp_DataKegiatan2.Value;
 
                 // Query dasar
-                string baseQuery = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at " + "FROM log l " +"JOIN users u ON l.id_user = u.id";
+                string baseQuery = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at " + "FROM log l " + "JOIN users u ON l.id_user = u.id";
 
                 // Persiapkan parameter dan kondisi WHERE
                 List<MySqlParameter> parameters = new List<MySqlParameter>();
@@ -142,7 +146,7 @@ namespace NTIX_App
                 if (fromDate != DateTime.Now && toDate != DateTime.Now)
                 {
                     if (!string.IsNullOrEmpty(whereCondition))
-                    whereCondition += " AND";
+                        whereCondition += " AND";
                     whereCondition += " DATE(l.created_at) BETWEEN @fromdate AND @todate";
                     parameters.Add(new MySqlParameter("@fromdate", fromDate.Date));
                     parameters.Add(new MySqlParameter("@todate", toDate.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
@@ -183,21 +187,19 @@ namespace NTIX_App
         private void Btn_UnduhPdfDataKegiatan_Click(object sender, EventArgs e)
         {
             // Membuat instance dari class Document iTextSharp
-            Document doc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
+            Document doc = new Document(PageSize.A4.Rotate(), 20f, 20f, 20f, 0f);
 
-            iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16, iTextSharp.text.Font.BOLD);
-            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12);
-
+            iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 16, iTextSharp.text.Font.BOLD);
+            iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12);
 
             // Membuat objek paragraph dengan judul
             Paragraph title = new Paragraph("Laporan Kegiatan", fontTitle);
-            Paragraph currentDate = new Paragraph("Tanggal: " + DateTime.Now.ToShortDateString(), font);
-            currentDate.Alignment = Element.ALIGN_RIGHT; // Mengatur perataan teks ke kanan
-            currentDate.SpacingAfter = 10; // Spasi setelah tanggal
-            currentDate.SpacingBefore = 10; // Spasi sebelum tanggal]   
             title.Alignment = Element.ALIGN_CENTER; // Mengatur perataan teks
-            title.SpacingAfter = 40;
-            title.SpacingBefore = 40;
+            title.SpacingAfter = 20;
+
+            // Tambahkan tanggal saat diprint
+            title.Add(new Paragraph($"Tanggal Cetak: {DateTime.Now.ToShortDateString()}", font));
+            title.SpacingAfter = 20;
 
             // Menentukan lokasi penyimpanan file PDF
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -205,63 +207,116 @@ namespace NTIX_App
             saveFileDialog1.FileName = "laporan Kegiatan.pdf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Membuka file PDF
-                PdfWriter.GetInstance(doc, new FileStream(saveFileDialog1.FileName, FileMode.Create));
-
-                // Membuka dokumen
-                doc.Open();
-
-                //Menampilkan Tanggal Cetak Pdf
-                doc.Add(currentDate);
-
-                // Membuat table dengan jumlah kolom sesuai dengan jumlah kolom di dalam DataGridView
-                PdfPTable table = new PdfPTable(Dgv_DataKegiatan.Columns.Count);
-
-                // Menambahkan header ke dalam table
-                for (int i = 0; i < Dgv_DataKegiatan.Columns.Count; i++)
+                try
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(Dgv_DataKegiatan.Columns[i].HeaderText));
-                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                    cell.Padding = 5;
-                    cell.BorderWidth = 1;
-                    table.AddCell(cell);
-                }
+                    // Membuka file PDF
+                    PdfWriter.GetInstance(doc, new FileStream(saveFileDialog1.FileName, FileMode.Create));
 
-                // Menambahkan data dari DataGridView ke dalam table
-                for (int i = 0; i < Dgv_DataKegiatan.Rows.Count; i++)
-                {
-                    for (int j = 0; j < Dgv_DataKegiatan.Columns.Count; j++)
+                    // Membuka dokumen
+                    doc.Open();
+
+                    // Ambil nilai dari ComboBox dan DateTimePicker
+                    string selectedRole = Cb_Role.SelectedItem?.ToString();
+                    DateTime fromDate = Dtp_DataKegiatan1.Value;
+                    DateTime toDate = Dtp_DataKegiatan2.Value;
+
+                    // Query untuk mendapatkan data transaksi yang diurutkan berdasarkan ID terkecil ke terbesar
+                    string baseQuery = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at " +
+                                       "FROM log l " +
+                                       "JOIN users u ON l.id_user = u.id";
+
+                    // Persiapkan parameter dan kondisi WHERE
+                    List<MySqlParameter> parameters = new List<MySqlParameter>();
+                    string whereCondition = "";
+
+                    // Tambahkan kondisi role jika dipilih
+                    if (!string.IsNullOrEmpty(selectedRole))
                     {
-                        if (Dgv_DataKegiatan[j, i].Value != null)
+                        whereCondition += " u.role = @role";
+                        parameters.Add(new MySqlParameter("@role", selectedRole));
+                    }
+
+                    // Tambahkan kondisi tanggal jika dipilih
+                    if (fromDate != DateTime.Now && toDate != DateTime.Now)
+                    {
+                        if (!string.IsNullOrEmpty(whereCondition))
+                        whereCondition += " AND";
+                        whereCondition += " DATE(l.created_at) BETWEEN @fromdate AND @todate";
+                        parameters.Add(new MySqlParameter("@fromdate", fromDate.Date));
+                        parameters.Add(new MySqlParameter("@todate", toDate.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                    }
+
+                    // Gabungkan semua kondisi menjadi satu query
+                    string fullQuery = baseQuery;
+                    if (!string.IsNullOrEmpty(whereCondition))
+                    fullQuery += " WHERE" + whereCondition;
+
+                    // Tambahkan pengurutan berdasarkan ID
+                    fullQuery += " ORDER BY l.id ASC";
+
+                    // Eksekusi query
+                    using (MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=ntix-db"))
+                    {
+                        conn.Open();
+                        using (MySqlCommand cmd = new MySqlCommand(fullQuery, conn))
                         {
-                            PdfPCell cell = new PdfPCell(new Phrase(Dgv_DataKegiatan[j, i].Value.ToString()));
-                            cell.Padding = 5;
-                            cell.BorderWidth = 1;
-                            table.AddCell(cell);
+                            foreach (MySqlParameter parameter in parameters)
+                                cmd.Parameters.Add(parameter);
+
+                            using (MySqlDataReader rdr = cmd.ExecuteReader())
+                            {
+                                PdfPTable table = new PdfPTable(rdr.FieldCount);
+
+                                // Menambahkan header ke dalam table
+                                for (int i = 0; i < rdr.FieldCount; i++)
+                                {
+                                    PdfPCell cell = new PdfPCell(new Phrase(rdr.GetName(i), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10, iTextSharp.text.Font.BOLD)));
+                                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                                    cell.Padding = 5;
+                                    cell.BorderWidth = 1;
+                                    table.AddCell(cell);
+                                }
+
+                                // Menambahkan data dari hasil query ke dalam table
+                                while (rdr.Read())
+                                {
+                                    for (int i = 0; i < rdr.FieldCount; i++)
+                                    {
+                                        PdfPCell cell = new PdfPCell(new Phrase(rdr[i].ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
+                                        cell.Padding = 5;
+                                        cell.BorderWidth = 1;
+                                        table.AddCell(cell);
+                                    }
+                                }
+
+                                // Mengatur garis di sekitar tabel
+                                table.DefaultCell.BorderWidth = 0;
+                                table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
+                                table.DefaultCell.Padding = 10;
+                                table.WidthPercentage = 100;
+
+                                // Menambahkan paragraph ke dokumen
+                                doc.Add(title);
+
+                                // Menambahkan table ke dalam dokumen
+                                doc.Add(table);
+                            }
                         }
                     }
+
+                    // Menutup dokumen dan writer
+                    doc.Close();
+                    MessageBox.Show("Data berhasil di-print ke dalam file PDF.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Membuka file PDF setelah disimpan
+                    Process.Start(saveFileDialog1.FileName);
                 }
-
-                // Mengatur garis di sekitar tabel
-                table.DefaultCell.BorderWidth = 0;
-                table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
-                table.DefaultCell.Padding = 7;
-                table.WidthPercentage = 100;
-
-                // Menambahkan paragraph ke dokumen
-                doc.Add(title);
-
-                // Menambahkan table ke dalam dokumen
-                doc.Add(table);
-
-                // Menutup dokumen dan writer
-                doc.Close();
-                MessageBox.Show("Data berhasil di-print ke dalam file PDF.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Membuka file PDF setelah disimpan
-                Process.Start(saveFileDialog1.FileName);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
