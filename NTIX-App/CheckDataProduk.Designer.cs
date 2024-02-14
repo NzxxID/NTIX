@@ -100,12 +100,11 @@
             // 
             // Btn_RisetDataProduk
             // 
-            this.Btn_RisetDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_RisetDataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_RisetDataProduk.ForeColor = System.Drawing.Color.Black;
-            this.Btn_RisetDataProduk.Location = new System.Drawing.Point(587, 390);
+            this.Btn_RisetDataProduk.Location = new System.Drawing.Point(542, 52);
             this.Btn_RisetDataProduk.Name = "Btn_RisetDataProduk";
-            this.Btn_RisetDataProduk.Size = new System.Drawing.Size(194, 23);
+            this.Btn_RisetDataProduk.Size = new System.Drawing.Size(75, 23);
             this.Btn_RisetDataProduk.TabIndex = 47;
             this.Btn_RisetDataProduk.Text = "Reset";
             this.Btn_RisetDataProduk.UseVisualStyleBackColor = true;
@@ -116,9 +115,9 @@
             this.Btn_CheckDataTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_CheckDataTransaksi.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_CheckDataTransaksi.ForeColor = System.Drawing.Color.Black;
-            this.Btn_CheckDataTransaksi.Location = new System.Drawing.Point(130, 358);
+            this.Btn_CheckDataTransaksi.Location = new System.Drawing.Point(131, 333);
             this.Btn_CheckDataTransaksi.Name = "Btn_CheckDataTransaksi";
-            this.Btn_CheckDataTransaksi.Size = new System.Drawing.Size(194, 23);
+            this.Btn_CheckDataTransaksi.Size = new System.Drawing.Size(150, 37);
             this.Btn_CheckDataTransaksi.TabIndex = 46;
             this.Btn_CheckDataTransaksi.Text = "Check Data Transaksi";
             this.Btn_CheckDataTransaksi.UseVisualStyleBackColor = true;
@@ -129,7 +128,7 @@
             this.Lbl_To.AutoSize = true;
             this.Lbl_To.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_To.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_To.Location = new System.Drawing.Point(283, 42);
+            this.Lbl_To.Location = new System.Drawing.Point(284, 60);
             this.Lbl_To.Name = "Lbl_To";
             this.Lbl_To.Size = new System.Drawing.Size(18, 11);
             this.Lbl_To.TabIndex = 45;
@@ -137,14 +136,14 @@
             // 
             // Dtp_DataProduk2
             // 
-            this.Dtp_DataProduk2.Location = new System.Drawing.Point(306, 37);
+            this.Dtp_DataProduk2.Location = new System.Drawing.Point(307, 55);
             this.Dtp_DataProduk2.Name = "Dtp_DataProduk2";
             this.Dtp_DataProduk2.Size = new System.Drawing.Size(148, 20);
             this.Dtp_DataProduk2.TabIndex = 44;
             // 
             // Dtp_DataProduk1
             // 
-            this.Dtp_DataProduk1.Location = new System.Drawing.Point(130, 37);
+            this.Dtp_DataProduk1.Location = new System.Drawing.Point(131, 55);
             this.Dtp_DataProduk1.Name = "Dtp_DataProduk1";
             this.Dtp_DataProduk1.Size = new System.Drawing.Size(148, 20);
             this.Dtp_DataProduk1.TabIndex = 43;
@@ -156,20 +155,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgv_DataProduk.BackgroundColor = System.Drawing.Color.White;
             this.Dgv_DataProduk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_DataProduk.Location = new System.Drawing.Point(130, 63);
+            this.Dgv_DataProduk.Location = new System.Drawing.Point(130, 81);
             this.Dgv_DataProduk.Name = "Dgv_DataProduk";
-            this.Dgv_DataProduk.Size = new System.Drawing.Size(651, 289);
+            this.Dgv_DataProduk.Size = new System.Drawing.Size(651, 246);
             this.Dgv_DataProduk.TabIndex = 38;
             this.Dgv_DataProduk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_DataProduk_CellClick);
             // 
             // Btn_UnduhPdfDataProduk
             // 
-            this.Btn_UnduhPdfDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_UnduhPdfDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_UnduhPdfDataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_UnduhPdfDataProduk.ForeColor = System.Drawing.Color.Black;
-            this.Btn_UnduhPdfDataProduk.Location = new System.Drawing.Point(587, 358);
+            this.Btn_UnduhPdfDataProduk.Location = new System.Drawing.Point(443, 333);
             this.Btn_UnduhPdfDataProduk.Name = "Btn_UnduhPdfDataProduk";
-            this.Btn_UnduhPdfDataProduk.Size = new System.Drawing.Size(194, 23);
+            this.Btn_UnduhPdfDataProduk.Size = new System.Drawing.Size(150, 37);
             this.Btn_UnduhPdfDataProduk.TabIndex = 42;
             this.Btn_UnduhPdfDataProduk.Text = "Unduh Pdf";
             this.Btn_UnduhPdfDataProduk.UseVisualStyleBackColor = true;
@@ -179,7 +178,7 @@
             // 
             this.Pb_SearchDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pb_SearchDataProduk.Image = ((System.Drawing.Image)(resources.GetObject("Pb_SearchDataProduk.Image")));
-            this.Pb_SearchDataProduk.Location = new System.Drawing.Point(761, 41);
+            this.Pb_SearchDataProduk.Location = new System.Drawing.Point(764, 19);
             this.Pb_SearchDataProduk.Name = "Pb_SearchDataProduk";
             this.Pb_SearchDataProduk.Size = new System.Drawing.Size(12, 12);
             this.Pb_SearchDataProduk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -190,9 +189,9 @@
             // 
             this.txt_SearchDataProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_SearchDataProduk.ForeColor = System.Drawing.Color.Black;
-            this.txt_SearchDataProduk.Location = new System.Drawing.Point(587, 37);
+            this.txt_SearchDataProduk.Location = new System.Drawing.Point(568, 15);
             this.txt_SearchDataProduk.Name = "txt_SearchDataProduk";
-            this.txt_SearchDataProduk.Size = new System.Drawing.Size(194, 20);
+            this.txt_SearchDataProduk.Size = new System.Drawing.Size(213, 20);
             this.txt_SearchDataProduk.TabIndex = 39;
             this.txt_SearchDataProduk.TextChanged += new System.EventHandler(this.txt_SearchDataProduk_TextChanged);
             // 
@@ -201,7 +200,7 @@
             this.Lbl_DataProduk.AutoSize = true;
             this.Lbl_DataProduk.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_DataProduk.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_DataProduk.Location = new System.Drawing.Point(126, 9);
+            this.Lbl_DataProduk.Location = new System.Drawing.Point(127, 15);
             this.Lbl_DataProduk.Name = "Lbl_DataProduk";
             this.Lbl_DataProduk.Size = new System.Drawing.Size(117, 23);
             this.Lbl_DataProduk.TabIndex = 40;
@@ -212,9 +211,9 @@
             this.Btn_CheckDataKegiatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_CheckDataKegiatan.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_CheckDataKegiatan.ForeColor = System.Drawing.Color.Black;
-            this.Btn_CheckDataKegiatan.Location = new System.Drawing.Point(130, 390);
+            this.Btn_CheckDataKegiatan.Location = new System.Drawing.Point(287, 333);
             this.Btn_CheckDataKegiatan.Name = "Btn_CheckDataKegiatan";
-            this.Btn_CheckDataKegiatan.Size = new System.Drawing.Size(194, 23);
+            this.Btn_CheckDataKegiatan.Size = new System.Drawing.Size(150, 37);
             this.Btn_CheckDataKegiatan.TabIndex = 49;
             this.Btn_CheckDataKegiatan.Text = " Check Data Kegiatan";
             this.Btn_CheckDataKegiatan.UseVisualStyleBackColor = true;
@@ -224,7 +223,7 @@
             // 
             this.Btn_FilterProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_FilterProduk.ForeColor = System.Drawing.Color.Black;
-            this.Btn_FilterProduk.Location = new System.Drawing.Point(460, 36);
+            this.Btn_FilterProduk.Location = new System.Drawing.Point(461, 54);
             this.Btn_FilterProduk.Name = "Btn_FilterProduk";
             this.Btn_FilterProduk.Size = new System.Drawing.Size(75, 23);
             this.Btn_FilterProduk.TabIndex = 50;

@@ -26,6 +26,7 @@ namespace NTIX_App
         private void HistoryTransaksi_Load(object sender, EventArgs e)
         {
             LoadData();
+            FillCbNamaKonser();
         }
         private void LoadData()
         {
@@ -90,6 +91,14 @@ namespace NTIX_App
                             parameters.Add(new MySqlParameter("@todate", Dtp_DataTransaksi2.Value.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
                         }
 
+                        // Tambahkan kondisi nama produk jika dipilih
+                        if (Cb_NamaKonser.SelectedIndex != -1)
+                        {
+                            string selectedProductName = Cb_NamaKonser.SelectedItem.ToString();
+                            whereCondition += (whereCondition == "" ? "" : " AND ") + "u.nama_produk = @nama_produk";
+                            parameters.Add(new MySqlParameter("@nama_produk", selectedProductName));
+                        }
+
                         // Gabungkan semua kondisi menjadi satu query
                         string fullQuery = baseQuery;
                         if (!string.IsNullOrEmpty(whereCondition))
@@ -119,6 +128,7 @@ namespace NTIX_App
         {
             Dtp_DataTransaksi1.Value = DateTime.Now;
             Dtp_DataTransaksi2.Value = DateTime.Now;
+            Cb_NamaKonser.SelectedIndex = -1;
             LoadData();
         }
 
@@ -230,7 +240,33 @@ namespace NTIX_App
                     doc.Open();
 
                     // Query untuk mendapatkan data transaksi yang diurutkan berdasarkan ID terkecil ke terbesar
-                    string fullQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l " +  "JOIN produk u ON l.id_produk = u.id " +  "ORDER BY l.id ASC";
+                    string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " +
+                        "FROM transaksi l JOIN produk u ON l.id_produk = u.id";
+
+                    // Persiapkan parameter dan kondisi WHERE
+                    List<MySqlParameter> parameters = new List<MySqlParameter>();
+                    string whereCondition = "";
+
+                    // Tambahkan kondisi tanggal jika dipilih
+                    if (Dtp_DataTransaksi1.Value != DateTime.Now || Dtp_DataTransaksi2.Value != DateTime.Now)
+                    {
+                        whereCondition += " DATE (l.created_at) BETWEEN @fromdate AND @todate";
+                        parameters.Add(new MySqlParameter("@fromdate", Dtp_DataTransaksi1.Value.Date));
+                        parameters.Add(new MySqlParameter("@todate", Dtp_DataTransaksi2.Value.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                    }
+
+                    // Tambahkan kondisi nama produk jika dipilih
+                    if (Cb_NamaKonser.SelectedIndex != -1)
+                    {
+                        string selectedProductName = Cb_NamaKonser.SelectedItem.ToString();
+                        whereCondition += (whereCondition == "" ? "" : " AND ") + "u.nama_produk = @nama_produk";
+                        parameters.Add(new MySqlParameter("@nama_produk", selectedProductName));
+                    }
+
+                    // Gabungkan semua kondisi menjadi satu query
+                    string fullQuery = baseQuery;
+                    if (!string.IsNullOrEmpty(whereCondition))
+                        fullQuery += " WHERE" + whereCondition;
 
                     // Eksekusi query
                     using (MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=ntix-db"))
@@ -238,6 +274,9 @@ namespace NTIX_App
                         conn.Open();
                         using (MySqlCommand cmd = new MySqlCommand(fullQuery, conn))
                         {
+                            foreach (MySqlParameter parameter in parameters)
+                                cmd.Parameters.Add(parameter);
+
                             using (MySqlDataReader rdr = cmd.ExecuteReader())
                             {
                                 PdfPTable table = new PdfPTable(rdr.FieldCount);
@@ -300,5 +339,32 @@ namespace NTIX_App
                 }
             }
         }
+
+        private void Cb_NamaKonser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void FillCbNamaKonser()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=ntix-db"))
+                {
+                    conn.Open();
+                    string query = "SELECT nama_produk FROM produk";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Cb_NamaKonser.Items.Add(rdr["nama_produk"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
     }
 }

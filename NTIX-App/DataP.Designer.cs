@@ -61,7 +61,7 @@
             this.Btn_Tutup.ForeColor = System.Drawing.Color.Black;
             this.Btn_Tutup.Location = new System.Drawing.Point(12, 362);
             this.Btn_Tutup.Name = "Btn_Tutup";
-            this.Btn_Tutup.Size = new System.Drawing.Size(165, 23);
+            this.Btn_Tutup.Size = new System.Drawing.Size(150, 37);
             this.Btn_Tutup.TabIndex = 2;
             this.Btn_Tutup.Text = "Tutup";
             this.Btn_Tutup.UseVisualStyleBackColor = true;

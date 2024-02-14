@@ -319,5 +319,10 @@ namespace NTIX_App
                 }
             }
         }
+
+        private void Cb_Role_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

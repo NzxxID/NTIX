@@ -502,9 +502,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgv_Transaksi.BackgroundColor = System.Drawing.Color.White;
             this.Dgv_Transaksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Transaksi.Location = new System.Drawing.Point(136, 283);
+            this.Dgv_Transaksi.Location = new System.Drawing.Point(136, 244);
             this.Dgv_Transaksi.Name = "Dgv_Transaksi";
-            this.Dgv_Transaksi.Size = new System.Drawing.Size(417, 151);
+            this.Dgv_Transaksi.Size = new System.Drawing.Size(417, 176);
             this.Dgv_Transaksi.TabIndex = 17;
             this.Dgv_Transaksi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Transaksi_CellClick);
             // 
@@ -513,9 +513,9 @@
             this.Btn_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Print.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Print.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Print.Location = new System.Drawing.Point(570, 382);
+            this.Btn_Print.Location = new System.Drawing.Point(570, 383);
             this.Btn_Print.Name = "Btn_Print";
-            this.Btn_Print.Size = new System.Drawing.Size(209, 23);
+            this.Btn_Print.Size = new System.Drawing.Size(100, 37);
             this.Btn_Print.TabIndex = 18;
             this.Btn_Print.Text = "Print";
             this.Btn_Print.UseVisualStyleBackColor = true;
@@ -536,9 +536,9 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(570, 411);
+            this.button1.Location = new System.Drawing.Point(679, 384);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 23);
+            this.button1.Size = new System.Drawing.Size(100, 37);
             this.button1.TabIndex = 2;
             this.button1.Text = "Check Produk";
             this.button1.UseVisualStyleBackColor = true;

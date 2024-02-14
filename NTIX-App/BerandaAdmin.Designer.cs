@@ -102,7 +102,7 @@
             // 
             this.txt_SearchDaftarPengguna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_SearchDaftarPengguna.ForeColor = System.Drawing.Color.Black;
-            this.txt_SearchDaftarPengguna.Location = new System.Drawing.Point(593, 19);
+            this.txt_SearchDaftarPengguna.Location = new System.Drawing.Point(593, 14);
             this.txt_SearchDaftarPengguna.Name = "txt_SearchDaftarPengguna";
             this.txt_SearchDaftarPengguna.Size = new System.Drawing.Size(194, 20);
             this.txt_SearchDaftarPengguna.TabIndex = 0;
@@ -112,7 +112,7 @@
             // 
             this.Pb_SearchDaftarPengguna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pb_SearchDaftarPengguna.Image = ((System.Drawing.Image)(resources.GetObject("Pb_SearchDaftarPengguna.Image")));
-            this.Pb_SearchDaftarPengguna.Location = new System.Drawing.Point(767, 23);
+            this.Pb_SearchDaftarPengguna.Location = new System.Drawing.Point(767, 18);
             this.Pb_SearchDaftarPengguna.Name = "Pb_SearchDaftarPengguna";
             this.Pb_SearchDaftarPengguna.Size = new System.Drawing.Size(12, 12);
             this.Pb_SearchDaftarPengguna.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -124,9 +124,9 @@
             this.Btn_TambahPengguna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_TambahPengguna.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_TambahPengguna.ForeColor = System.Drawing.Color.Black;
-            this.Btn_TambahPengguna.Location = new System.Drawing.Point(593, 193);
+            this.Btn_TambahPengguna.Location = new System.Drawing.Point(637, 187);
             this.Btn_TambahPengguna.Name = "Btn_TambahPengguna";
-            this.Btn_TambahPengguna.Size = new System.Drawing.Size(194, 23);
+            this.Btn_TambahPengguna.Size = new System.Drawing.Size(150, 37);
             this.Btn_TambahPengguna.TabIndex = 6;
             this.Btn_TambahPengguna.Text = "Tambah Pengguna";
             this.Btn_TambahPengguna.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.Lbl_DaftarPengguna.AutoSize = true;
             this.Lbl_DaftarPengguna.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_DaftarPengguna.ForeColor = System.Drawing.Color.Black;
-            this.Lbl_DaftarPengguna.Location = new System.Drawing.Point(132, 12);
+            this.Lbl_DaftarPengguna.Location = new System.Drawing.Point(132, 7);
             this.Lbl_DaftarPengguna.Name = "Lbl_DaftarPengguna";
             this.Lbl_DaftarPengguna.Size = new System.Drawing.Size(153, 23);
             this.Lbl_DaftarPengguna.TabIndex = 3;
@@ -149,7 +149,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgv_DaftarPengguna.BackgroundColor = System.Drawing.Color.White;
             this.Dgv_DaftarPengguna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_DaftarPengguna.Location = new System.Drawing.Point(136, 45);
+            this.Dgv_DaftarPengguna.Location = new System.Drawing.Point(136, 40);
             this.Dgv_DaftarPengguna.Name = "Dgv_DaftarPengguna";
             this.Dgv_DaftarPengguna.Size = new System.Drawing.Size(651, 142);
             this.Dgv_DaftarPengguna.TabIndex = 0;
@@ -173,9 +173,9 @@
             this.Btn_TambahProduk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_TambahProduk.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_TambahProduk.ForeColor = System.Drawing.Color.Black;
-            this.Btn_TambahProduk.Location = new System.Drawing.Point(593, 404);
+            this.Btn_TambahProduk.Location = new System.Drawing.Point(637, 404);
             this.Btn_TambahProduk.Name = "Btn_TambahProduk";
-            this.Btn_TambahProduk.Size = new System.Drawing.Size(194, 23);
+            this.Btn_TambahProduk.Size = new System.Drawing.Size(150, 37);
             this.Btn_TambahProduk.TabIndex = 11;
             this.Btn_TambahProduk.Text = "Tambah Produk";
             this.Btn_TambahProduk.UseVisualStyleBackColor = true;
