@@ -108,7 +108,7 @@ namespace NTIX_App
                         using (MySqlCommand cmd = new MySqlCommand(fullQuery, conn))
                         {
                             foreach (MySqlParameter parameter in parameters)
-                                cmd.Parameters.Add(parameter);
+                            cmd.Parameters.Add(parameter);
 
                             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(cmd);
                             mySqlDataAdapter.Fill(dt);
@@ -240,8 +240,7 @@ namespace NTIX_App
                     doc.Open();
 
                     // Query untuk mendapatkan data transaksi yang diurutkan berdasarkan ID terkecil ke terbesar
-                    string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " +
-                        "FROM transaksi l JOIN produk u ON l.id_produk = u.id";
+                    string baseQuery = "SELECT l.id, l.id_produk, u.nama_produk, u.harga_produk, l.qty, l.nama_pelanggan, l.nomor_unik, l.kategori, l.no_hp, l.total_harga, l.uang_bayar, l.uang_kembalian, l.created_at " + "FROM transaksi l JOIN produk u ON l.id_produk = u.id";
 
                     // Persiapkan parameter dan kondisi WHERE
                     List<MySqlParameter> parameters = new List<MySqlParameter>();

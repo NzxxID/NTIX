@@ -221,9 +221,7 @@ namespace NTIX_App
                     DateTime toDate = Dtp_DataKegiatan2.Value;
 
                     // Query untuk mendapatkan data transaksi yang diurutkan berdasarkan ID terkecil ke terbesar
-                    string baseQuery = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at " +
-                                       "FROM log l " +
-                                       "JOIN users u ON l.id_user = u.id";
+                    string baseQuery = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at " +"FROM log l " + "JOIN users u ON l.id_user = u.id";
 
                     // Persiapkan parameter dan kondisi WHERE
                     List<MySqlParameter> parameters = new List<MySqlParameter>();

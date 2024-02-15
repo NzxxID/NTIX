@@ -93,7 +93,14 @@ namespace NTIX_App
                 int idProduk = GetProductId(namaProduk);
                 if (idProduk == -1)
                 {
-                    MessageBox.Show("Produk tidak ditemukan.");
+                    MessageBox.Show("PRODUK TIDAK DITEMUKAN");
+                    return;
+                }
+
+                // Cek stok produk
+                if (!IsStockAvailable(idProduk, qty))
+                {
+                    MessageBox.Show("STOK PRODUK HABIS");
                     return;
                 }
 
@@ -131,8 +138,25 @@ namespace NTIX_App
                 // Memanggil kembali metode Transaksi_Load untuk merefresh form
                 RefreshDataGridView();
             }
+        }
+        private bool IsStockAvailable(int productId, int quantity)
+        {
+            // Mendapatkan stok produk dari database
+            MySqlCommand getStockCommand = new MySqlCommand("SELECT stok FROM produk WHERE id = @idProduk", conn);
+            getStockCommand.Parameters.AddWithValue("@idProduk", productId);
 
-
+            using (MySqlDataReader reader = getStockCommand.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    int currentStock = reader.GetInt32(0);
+                    return currentStock >= quantity; // Return true jika stok cukup, false jika tidak cukup
+                }
+                else
+                {
+                    return false; // Return false jika produk tidak ditemukan
+                }
+            }
         }
         private int GetProductId(string productName)
         {
@@ -335,14 +359,12 @@ namespace NTIX_App
                 {
                     // Handle the case where no matching record is found
                     // txt_Harga.Text = "Not Found";
-                     txt_NoUnik.Text = ""; // Uncomment this line to clear NoUnik if no matching record found
+                    txt_NoUnik.Text = ""; // Uncomment this line to clear NoUnik if no matching record found
                     Cb_Kategori.Items.Clear(); // Clear ComboBox kategori if no matching record found
                 }
 
                 conn.Close();
             }
-
-
 
         }
 
@@ -375,7 +397,7 @@ namespace NTIX_App
             Cb_Kategori.Text = dr.Cells[6].Value.ToString();
             txt_NoHp.Text = dr.Cells[7].Value.ToString();
             txt_TotalPembayaran.Text = decimal.Parse(dr.Cells[8].Value.ToString()).ToString("N2");
-            txt_UangBayar.Text = decimal.Parse(dr.Cells[9]. Value.ToString()).ToString("N2");
+            txt_UangBayar.Text = decimal.Parse(dr.Cells[9].Value.ToString()).ToString("N2");
             txt_UangKembali.Text = decimal.Parse(dr.Cells[10].Value.ToString()).ToString("N2");
             id = dr.Cells[0].Value.ToString();
         }

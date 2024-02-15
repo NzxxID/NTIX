@@ -45,6 +45,7 @@
             this.crystalReportViewer1.ReportSource = this.CrystalReport12;
             this.crystalReportViewer1.Size = new System.Drawing.Size(799, 451);
             this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // Laporan
             // 
@@ -55,6 +56,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Laporan";
             this.Text = "Laporan";
+            this.Load += new System.EventHandler(this.Laporan_Load);
             this.ResumeLayout(false);
 
         }

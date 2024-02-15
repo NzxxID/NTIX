@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace NTIX_App
 {
     public partial class Laporan : Form
@@ -15,6 +16,16 @@ namespace NTIX_App
         public Laporan()
         {
             InitializeComponent();
+        }
+
+        private void Laporan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
