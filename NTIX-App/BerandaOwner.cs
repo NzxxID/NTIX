@@ -215,94 +215,54 @@ namespace NTIX_App
                     // Membuka dokumen
                     doc.Open();
 
-                    // Ambil nilai dari ComboBox dan DateTimePicker
-                    string selectedRole = Cb_Role.SelectedItem?.ToString();
-                    DateTime fromDate = Dtp_DataKegiatan1.Value;
-                    DateTime toDate = Dtp_DataKegiatan2.Value;
+                    // Ambil data yang ditampilkan di DataGridView
+                    DataTable dt = (DataTable)Dgv_DataKegiatan.DataSource;
 
-                    // Query untuk mendapatkan data transaksi yang diurutkan berdasarkan ID terkecil ke terbesar
-                    string baseQuery = "SELECT l.id, l.id_user, u.nama, u.role, l.activity, l.created_at " +"FROM log l " + "JOIN users u ON l.id_user = u.id";
-
-                    // Persiapkan parameter dan kondisi WHERE
-                    List<MySqlParameter> parameters = new List<MySqlParameter>();
-                    string whereCondition = "";
-
-                    // Tambahkan kondisi role jika dipilih
-                    if (!string.IsNullOrEmpty(selectedRole))
+                    // Jika terdapat filter aktif
+                    if (!string.IsNullOrEmpty(txt_SearchDataKegiatan.Text.Trim()))
                     {
-                        whereCondition += " u.role = @role";
-                        parameters.Add(new MySqlParameter("@role", selectedRole));
+                        DataView dv = dt.DefaultView;
+                        dv.RowFilter = $"nama LIKE '%{txt_SearchDataKegiatan.Text.Trim()}%'";
+                        dt = dv.ToTable();
                     }
 
-                    // Tambahkan kondisi tanggal jika dipilih
-                    if (fromDate != DateTime.Now && toDate != DateTime.Now)
+                    PdfPTable table = new PdfPTable(dt.Columns.Count);
+
+                    // Menambahkan header ke dalam table
+                    foreach (DataColumn column in dt.Columns)
                     {
-                        if (!string.IsNullOrEmpty(whereCondition))
-                        whereCondition += " AND";
-                        whereCondition += " DATE(l.created_at) BETWEEN @fromdate AND @todate";
-                        parameters.Add(new MySqlParameter("@fromdate", fromDate.Date));
-                        parameters.Add(new MySqlParameter("@todate", toDate.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                        PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10, iTextSharp.text.Font.BOLD)));
+                        cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        cell.Padding = 5;
+                        cell.BorderWidth = 1;
+                        table.AddCell(cell);
                     }
 
-                    // Gabungkan semua kondisi menjadi satu query
-                    string fullQuery = baseQuery;
-                    if (!string.IsNullOrEmpty(whereCondition))
-                    fullQuery += " WHERE" + whereCondition;
-
-                    // Tambahkan pengurutan berdasarkan ID
-                    fullQuery += " ORDER BY l.id ASC";
-
-                    // Eksekusi query
-                    using (MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=ntix-db"))
+                    // Menambahkan data dari hasil query ke dalam table
+                    foreach (DataRow row in dt.Rows)
                     {
-                        conn.Open();
-                        using (MySqlCommand cmd = new MySqlCommand(fullQuery, conn))
+                        foreach (object item in row.ItemArray)
                         {
-                            foreach (MySqlParameter parameter in parameters)
-                                cmd.Parameters.Add(parameter);
-
-                            using (MySqlDataReader rdr = cmd.ExecuteReader())
-                            {
-                                PdfPTable table = new PdfPTable(rdr.FieldCount);
-
-                                // Menambahkan header ke dalam table
-                                for (int i = 0; i < rdr.FieldCount; i++)
-                                {
-                                    PdfPCell cell = new PdfPCell(new Phrase(rdr.GetName(i), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10, iTextSharp.text.Font.BOLD)));
-                                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                    cell.Padding = 5;
-                                    cell.BorderWidth = 1;
-                                    table.AddCell(cell);
-                                }
-
-                                // Menambahkan data dari hasil query ke dalam table
-                                while (rdr.Read())
-                                {
-                                    for (int i = 0; i < rdr.FieldCount; i++)
-                                    {
-                                        PdfPCell cell = new PdfPCell(new Phrase(rdr[i].ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
-                                        cell.Padding = 5;
-                                        cell.BorderWidth = 1;
-                                        table.AddCell(cell);
-                                    }
-                                }
-
-                                // Mengatur garis di sekitar tabel
-                                table.DefaultCell.BorderWidth = 0;
-                                table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
-                                table.DefaultCell.Padding = 10;
-                                table.WidthPercentage = 100;
-
-                                // Menambahkan paragraph ke dokumen
-                                doc.Add(title);
-
-                                // Menambahkan table ke dalam dokumen
-                                doc.Add(table);
-                            }
+                            PdfPCell cell = new PdfPCell(new Phrase(item.ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10)));
+                            cell.Padding = 5;
+                            cell.BorderWidth = 1;
+                            table.AddCell(cell);
                         }
                     }
+
+                    // Mengatur garis di sekitar tabel
+                    table.DefaultCell.BorderWidth = 0;
+                    table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
+                    table.DefaultCell.Padding = 10;
+                    table.WidthPercentage = 100;
+
+                    // Menambahkan paragraph ke dokumen
+                    doc.Add(title);
+
+                    // Menambahkan table ke dalam dokumen
+                    doc.Add(table);
 
                     // Menutup dokumen dan writer
                     doc.Close();

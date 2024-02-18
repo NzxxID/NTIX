@@ -87,6 +87,7 @@ namespace NTIX_App
         {
             Btn_Simpan.Enabled = true;
             Btn_Edit.Enabled = false;
+            Btn_Hapus.Enabled = false;
             
             if (txt_NamaKonser.Text == string.Empty || txt_JenisMusik.Text == string.Empty || txt_Harga.Text == string.Empty || txt_Stok.Text == string.Empty || txt_Lokasi.Text == string.Empty)
             {

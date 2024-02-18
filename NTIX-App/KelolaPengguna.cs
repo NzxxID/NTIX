@@ -86,6 +86,7 @@ namespace NTIX_App
         {
             Btn_Simpan.Enabled = true;
             Btn_Edit.Enabled = false;
+            Btn_Hapus.Enabled = false;
 
             if (txt_NamaPengguna.Text == string.Empty || txt_KataSandi.Text == string.Empty || txt_Nama.Text == string.Empty || Cb_Role.Text == string.Empty)
             {

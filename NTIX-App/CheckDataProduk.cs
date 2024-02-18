@@ -184,82 +184,45 @@ namespace NTIX_App
                     // Membuka dokumen
                     doc.Open();
 
-                    // Query dasar
-                    string baseQuery = "SELECT * FROM produk";
+                    // Mendapatkan data produk dari DataGridView
+                    DataTable dt = (DataTable)Dgv_DataProduk.DataSource;
 
-                    // Persiapkan parameter dan kondisi WHERE
-                    List<MySqlParameter> parameters = new List<MySqlParameter>();
-                    string whereCondition = "";
-
-                    // Tambahkan kondisi tanggal jika dipilih
-                    if (Dtp_DataProduk1.Value != DateTime.Now || Dtp_DataProduk2.Value != DateTime.Now)
+                    // Menambahkan data produk ke dalam table
+                    PdfPTable table = new PdfPTable(dt.Columns.Count);
+                    for (int i = 0; i < dt.Columns.Count; i++)
                     {
-                        if (!string.IsNullOrEmpty(whereCondition))
-                            whereCondition += " AND";
-                        whereCondition += " DATE(created_at) BETWEEN @fromdate AND @todate";
-                        parameters.Add(new MySqlParameter("@fromdate", Dtp_DataProduk1.Value.Date));
-                        parameters.Add(new MySqlParameter("@todate", Dtp_DataProduk2.Value.Date.AddDays(0))); // Tambah 1 hari agar mencakup hingga akhir hari yang dipilih
+                        PdfPCell cell = new PdfPCell(new Phrase(dt.Columns[i].ColumnName, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7, iTextSharp.text.Font.BOLD)));
+                        cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        cell.Padding = 5;
+                        cell.BorderWidth = 1;
+                        table.AddCell(cell);
                     }
 
-                    // Gabungkan semua kondisi menjadi satu query
-                    string fullQuery = baseQuery;
-                    if (!string.IsNullOrEmpty(whereCondition))
-                        fullQuery += " WHERE" + whereCondition;
-
-                    // Tambahkan pengurutan berdasarkan ID
-                    fullQuery += " ORDER BY id ASC";
-
-                    // Eksekusi query
-                    using (MySqlConnection conn = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=ntix-db"))
+                    // Menambahkan data dari DataGridView ke dalam table
+                    foreach (DataRow row in dt.Rows)
                     {
-                        conn.Open();
-                        using (MySqlCommand cmd = new MySqlCommand(fullQuery, conn))
+                        foreach (object cellValue in row.ItemArray)
                         {
-                            foreach (MySqlParameter parameter in parameters)
-                                cmd.Parameters.Add(parameter);
-
-                            using (MySqlDataReader rdr = cmd.ExecuteReader())
-                            {
-                                PdfPTable table = new PdfPTable(rdr.FieldCount);
-
-                                // Menambahkan header ke dalam table
-                                for (int i = 0; i < rdr.FieldCount; i++)
-                                {
-                                    PdfPCell cell = new PdfPCell(new Phrase(rdr.GetName(i), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7, iTextSharp.text.Font.BOLD)));
-                                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                                    cell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                                    cell.Padding = 5;
-                                    cell.BorderWidth = 1;
-                                    table.AddCell(cell);
-                                }
-
-                                // Menambahkan data dari hasil query ke dalam table
-                                while (rdr.Read())
-                                {
-                                    for (int i = 0; i < rdr.FieldCount; i++)
-                                    {
-                                        PdfPCell cell = new PdfPCell(new Phrase(rdr[i].ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7)));
-                                        cell.Padding = 5;
-                                        cell.BorderWidth = 1;
-                                        table.AddCell(cell);
-                                    }
-                                }
-
-                                // Mengatur garis di sekitar tabel
-                                table.DefaultCell.BorderWidth = 0;
-                                table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
-                                table.DefaultCell.Padding = 10;
-                                table.WidthPercentage = 100;
-
-                                // Menambahkan paragraph ke dokumen
-                                doc.Add(title);
-
-                                // Menambahkan table ke dalam dokumen
-                                doc.Add(table);
-                            }
+                            PdfPCell cell = new PdfPCell(new Phrase(cellValue.ToString(), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7)));
+                            cell.Padding = 5;
+                            cell.BorderWidth = 1;
+                            table.AddCell(cell);
                         }
                     }
+
+                    // Mengatur garis di sekitar tabel
+                    table.DefaultCell.BorderWidth = 0;
+                    table.DefaultCell.BorderColor = new iTextSharp.text.BaseColor(200, 200, 200);
+                    table.DefaultCell.Padding = 10;
+                    table.WidthPercentage = 100;
+
+                    // Menambahkan paragraph ke dokumen
+                    doc.Add(title);
+
+                    // Menambahkan table ke dalam dokumen
+                    doc.Add(table);
 
                     // Menutup dokumen dan writer
                     doc.Close();
